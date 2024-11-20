@@ -27,7 +27,7 @@ const reviewData = [
 
 const ReviewSection = () => {
   return (
-    <section className="flex overflow-hidden flex-col justify-center self-stretch px-36 py-36 bg-[linear-gradient(100deg,rgba(127,195,176,0.15_7.05%,rgba(78,172,146,0.10)_50.64%))] max-md:px-5 max-md:py-24">
+    <section className="flex overflow-hidden flex-col justify-center self-stretch px-36 py-36 bg-[linear-gradient(100deg,rgba(127,195,176,0.15_7.05%,rgba(78,172,146,0.10)_50.64%))] max-md:px-5 max-md:py-24 bg-[#D5EFE9]">
       <div className="flex flex-wrap gap-10 items-center w-full max-md:max-w-full">
         <h2 className="z-10 flex-1 shrink self-stretch pt-0 pb-28 my-auto text-6xl font-semibold tracking-tighter text-black leading-[60px] min-w-[332px] max-md:pb-24 max-md:text-4xl max-md:leading-10">
           Beberapa orang <br /> yang telah terbantu <br /> dengan ObesiFit

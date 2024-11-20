@@ -1,39 +1,13 @@
 import FormListDokter from "@/components/fragments/form/FormListDokter";
-import ProfilImage from "@/assets/images 2/Profil.jpg";
 import bannerImage from "@/assets/images 2/banner dokter.png";
-import { FaFacebookF, FaInstagram, FaYoutube } from "react-icons/fa";
-import { FaXTwitter } from "react-icons/fa6";
-
+import Navbar from "@/components/fragments/homeuser/NavbarUser";
+import FooterUser from "@/components/fragments/homeuser/FooterUser";
 
 export default function ListDokterPage() {
   return (
     <section className="flex flex-col min-h-screen bg-gray-50">
       {/* Navbar */}
-      <nav className="flex justify-between items-center p-4 bg-white">
-        <span className="text-xl font-bold pl-12">ObesiFit</span>
-        <div className="flex items-center space-x-6 pr-12">
-          <a href="#" className="text-black hover:underline">
-            Home
-          </a>
-          <a href="#" className="text-black hover:underline">
-            Artikel
-          </a>
-          <a href="#" className="text-black hover:underline">
-            Video
-          </a>
-          <a href="#" className="text-black hover:underline">
-            Kalkulator
-          </a>
-          <a href="#" className="text-black hover:underline">
-            Konsultasi
-          </a>
-          <img
-            src={ProfilImage}
-            alt="Profil User"
-            className="w-8 h-8 rounded-full border border-gray-300"
-          />
-        </div>
-      </nav>
+      <Navbar />
 
       {/* Banner Image Below Navbar */}
       <div
@@ -42,7 +16,7 @@ export default function ListDokterPage() {
       ></div>
 
       {/* Konten Utama */}
-      <div className="container mx-auto px-4 mt-8">
+      <div className="container mx-auto px-4 mt-8 mb-8">
         {/* Layout Utama */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-8">
           {/* Bagian Kiri: Informasi */}
@@ -203,25 +177,7 @@ export default function ListDokterPage() {
       </div>
 
       {/* Footer */}
-      <footer className="bg-[#697077] text-white text-sm py-4 flex justify-between items-center px-12 mt-20">
-        <div className="text-sm">
-          <p>ObesiFit @ 2024. All rights reserved.</p>
-        </div>
-        <div className="flex space-x-4">
-          <a href="#" className="text-white hover:text-gray-400">
-            <FaYoutube />
-          </a>
-          <a href="#" className="text-white hover:text-gray-400">
-            <FaFacebookF />
-          </a>
-          <a href="#" className="text-white hover:text-gray-400">
-            <FaXTwitter />
-          </a>
-          <a href="#" className="text-white hover:text-gray-400">
-            <FaInstagram />
-          </a>
-        </div>
-      </footer>
+      <FooterUser />
     </section>
   );
 }

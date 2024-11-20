@@ -80,7 +80,7 @@ export default function FormRegister2() {
 
       <Button
         type="submit"
-        className="w-full button-primary text-white text-sm py-1 px-2"
+        className="w-full button-primary text-white text-sm py-1 px-2" onClick={() => navigate("/login")}
       >
         Konfirmasi
       </Button>

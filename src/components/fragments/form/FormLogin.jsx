@@ -59,7 +59,7 @@ export default function FormLogin() {
       </div>
 
       <div className="flex flex-col gap-4">
-        <Button className="w-full" size="lg" type="submit" onClick={() => navigate("/dashboard")}>
+        <Button className="w-full" size="lg" type="submit" onClick={() => navigate("/homeuser")}>
           Masuk
         </Button>
         <Button className="w-full text-primary font-bold" variant="outline" size="lg" onClick={() => navigate("/register")}>

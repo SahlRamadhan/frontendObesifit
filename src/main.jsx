@@ -34,6 +34,22 @@ import ListSesiKonsulPage from "./pages/auth/ListSesiKonsulPage";
 import DaftarDokterAdminPage from "./pages/auth/DaftarDokterAdminPage";
 import KelolaDokterPage from "./pages/auth/KelolaDokterPage";
 import KelolaPembayaranPage from "./pages/auth/KelolaPembayaranPage";
+import HomeUser from "./pages/HomeUser";
+import ArtikelUser from "./pages/ArtikelUser";
+import VideoUser from "./pages/VideoUser";
+import HomeDokter from "./pages/HomeDokter";
+import IsiArtikelUserPage from "./pages/IsiArtikelUserPage";
+import IsiVideoUserPage from "./pages/IsiVideoUserPage";
+import ArtikelDokter from "./pages/ArtikelDokter";
+import VideoDokter from "./pages/VideoDokter";
+import IsiArtikelDokterPage from "./pages/IsiArtikelDokterPage";
+import IsiVideoDokterPage from "./pages/IsiVideoDokterPage";
+import BuatArtikelDokterPage from "./pages/BuatArtikelDokterPage";
+import BuatVideoDokterPage from "./pages/BuatVideoDokterPage";
+import HomeAdmin from "./pages/HomeAdmin";
+import KelolaPenggunaPage from "./pages/KelolaPenggunaPage";
+import KelolaArtikelPage from "./pages/KelolaArtikelPage";
+import KelolaVideoPage from "./pages/KelolaVideoPages";
 
 const router = createBrowserRouter([
   {
@@ -167,6 +183,70 @@ const router = createBrowserRouter([
   {
     path: "/kelola-pembayaran",
     element: <KelolaPembayaranPage />,
+  },
+  {
+    path: "/homeuser",
+    element: <HomeUser />,
+  },
+  {
+    path: "/artikeluser",
+    element: <ArtikelUser />,
+  },
+  {
+    path: "/videouser",
+    element: <VideoUser />,
+  },
+  {
+    path: "/homedokter",
+    element: <HomeDokter />,
+  },
+  {
+    path: "/isiartikeluser",
+    element: <IsiArtikelUserPage />,
+  },
+  {
+    path: "/isivideouser",
+    element: <IsiVideoUserPage />,
+  },
+  {
+    path: "/artikeldokter",
+    element: <ArtikelDokter />,
+  },
+  {
+    path: "/videodokter",
+    element: <VideoDokter />,
+  },
+  {
+    path: "/isiartikeldokter",
+    element: <IsiArtikelDokterPage />,
+  },
+  {
+    path: "/isivideodokter",
+    element: <IsiVideoDokterPage />,
+  },
+  {
+    path: "/buatartikeldokter",
+    element: <BuatArtikelDokterPage />,
+  },
+  {
+    path: "/buatvideodokter",
+    element: <BuatVideoDokterPage />,
+  },
+  {
+    path: "/homeadmin",
+    element: <HomeAdmin />,
+  },
+  {
+    path: "/kelolapengguna",
+    element: <KelolaPenggunaPage />,
+  },
+  {
+    path: "/kelolaartikel",
+    element: <KelolaArtikelPage />,
+  },
+  {
+    path: "/kelolavideo",
+    element: <KelolaVideoPage />,
   },
 ]);
 

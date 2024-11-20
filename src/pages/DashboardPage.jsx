@@ -5,7 +5,6 @@ import Tentang from "@/components/fragments/landingpage/Tentang";
 import Fitur from "@/components/fragments/landingpage/Fitur";
 import Kalkulator from "@/components/fragments/landingpage/Kalkulator";
 import Dokter from "@/components/fragments/landingpage/Dokter";
-import ReviewCard from "@/components/fragments/landingpage/ReviewCard";
 import ReviewSection from "@/components/fragments/landingpage/ReviewSection";
 
 
@@ -28,14 +27,9 @@ export default function DashboardPage() {
         title="Dukungan komunitas & konsultasi ahli"
         description="Bergabunglah dengan komunitas yang saling mendukung dan terhubung dengan para ahli kesehatan untuk mendapatkan saran yang tepat. Dapatkan pengalaman berbagi, motivasi, dan bantuan langsung dalam perjalanan menuju hidup sehat, bersama individu-individu yang memiliki tujuan yang sama."
       />
-      
-      <ReviewCard
-        
-      />
+    
 
-      <ReviewSection
-        
-      />
+      <ReviewSection/>
     </Layouts>
   );
 }
