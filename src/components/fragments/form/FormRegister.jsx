@@ -76,7 +76,7 @@ export default function FormRegister() {
     <form onSubmit={handleSubmit} className="space-y-3 mt-2">
       {/* Icon Back */}
       <button
-        onClick={() => navigate("/dashboard")}
+        onClick={() => navigate("/login")}
         className="absolute top-4 left-4 text-xl text-gray-600"
       >
         <FiArrowLeft />

@@ -15,20 +15,12 @@ export default function LoginPage() {
         </CardHeader>
 
         <div className="flex flex-col space-y-1 text-center">
-          <h3 className="font-semibold text-base">
-            Bergabunglah dengan Komunitas & Para Ahli
-          </h3>
-          <p className="font-light text-[10px] md:text-xs">
-            Dapatkan Dukungan, Pelajari Lebih Dalam tentang Obesitas
-          </p>
+          <h3 className="font-semibold text-base">Bergabunglah dengan Komunitas & Para Ahli</h3>
+          <p className="font-light text-[10px] md:text-xs">Dapatkan Dukungan, Pelajari Lebih Dalam tentang Obesitas</p>
         </div>
 
         <CardContent className="flex flex-col space-y-4 mt-4">
-          <Button
-            className="flex items-center justify-start w-full"
-            variant="outline"
-            size="lg"
-          >
+          <Button className="flex items-center justify-start w-full" variant="outline" size="lg">
             <img src="googleicons.svg" className="size-4 mr-2" />
             <span className="flex-1 text-center">Sign in with Google</span>
           </Button>
@@ -37,6 +29,9 @@ export default function LoginPage() {
 
           <FormLogin />
 
+          <div className="text-center font-bold text-primary text-[14px]">
+            <a href="/dashboard">Kembali ke halaman utama</a>
+          </div>
           <div className="text-center font-bold text-primary text-[14px]">
             <a href="/email">Lupa Password?</a>
           </div>

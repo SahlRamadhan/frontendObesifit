@@ -57,14 +57,11 @@ export default function FormListDokter() {
   return (
     <div className="space-y-6">
       {doctors.map((doctor) => (
-        <div
-          key={doctor.name} 
-          className="flex items-center bg-gray-100 p-4 rounded-lg shadow-sm"
-        >
+        <div key={doctor.name} className="flex items-center bg-gray-100 p-4 rounded-lg shadow-sm overflow-hidden transition-transform transform hover:scale-105">
           {/* Gambar Dokter */}
           <img
             src={doctor.image}
-            alt={`Foto dari ${doctor.name}`} 
+            alt={`Foto dari ${doctor.name}`}
             className="w-32 h-32 object-cover rounded-lg shadow-md" // Larger image
           />
           <div className="ml-4 flex-1">
@@ -86,9 +83,7 @@ export default function FormListDokter() {
 
             {/* Tombol Konsultasi Below Rating and Experience */}
             <div className="mt-4">
-              <Button className="bg-primary hover:bg-teal-600 text-white font-bold py-2 px-4 rounded-full text-sm shadow-md">
-                Konsultasi
-              </Button>
+              <Button className="bg-primary hover:bg-teal-600 text-white font-bold py-2 px-4 rounded-full text-sm shadow-md">Konsultasi</Button>
             </div>
           </div>
         </div>

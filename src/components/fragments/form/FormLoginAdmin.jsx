@@ -69,7 +69,7 @@ export default function FormLoginAdmin() {
       </div>
 
       <div className="flex flex-col gap-4">
-        <Button className="w-full" size="lg" type="submit">
+        <Button className="w-full" size="lg" type="submit" onClick={() => navigate("/homeadmin")}>
           Masuk
         </Button>
       </div>

@@ -10,7 +10,7 @@ import video6 from "../../../assets/images/Video Thumbnail (4).jpg";
 
 function VideoSection() {
   const videos = [
-    { image: video1, title: "Obesitas: Sekadar Masalah Kecil atau Ancaman Serius bagi Kesehatanmu?", link: "/video/1" },
+    { image: video1, title: "Obesitas: Sekadar Masalah Kecil atau Ancaman Serius bagi Kesehatanmu?", link: "/isivideouser" },
     { image: video2, title: "Penyebab sesungguhnya & Bahaya dibalik Obesitas!", link: "/video/2" },
     { image: video3, title: "Mitos & Fakta Makanan yang Bikin Obesitas", link: "/video/3" },
     { image: video4, title: "Lima Penyakit yang bakal kamu temui ketika kamu Obesitas!", link: "/video/4" },

@@ -92,7 +92,7 @@ export default function FormRegisterDokter() {
       },
     }).then((result) => {
       if (result.isConfirmed) {
-        navigate("/register-dokter");
+        navigate("/login-dokter");
       }
     });
 
@@ -111,7 +111,7 @@ export default function FormRegisterDokter() {
     <form onSubmit={handleSubmit} className="space-y-2 mt-3">
       {/* Icon Back */}
       <button
-        onClick={() => navigate("/register")}
+        onClick={() => navigate("/login-dokter")}
         className="absolute top-4 left-4 text-xl text-gray-600"
       >
         <FiArrowLeft />

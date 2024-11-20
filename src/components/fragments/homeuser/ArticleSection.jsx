@@ -11,7 +11,7 @@ import image8 from "../../../assets/images/Artikel Thumbanail (8).png";
 
 function ArticleSection() {
   const articles = [
-    { image: image1, title: "Memahami Obesitas: Penyebab dan Dampaknya bagi Kesehatan", link: "/artikel/1" },
+    { image: image1, title: "Memahami Obesitas: Penyebab dan Dampaknya bagi Kesehatan", link: "/isiartikeluser" },
     { image: image2, title: "Pentingnya Mengelola Berat Badan untuk Kesehatan Mental", link: "/artikel/2" },
     { image: image3, title: "Mitos tentang Obat Penurun Berat Badan yang Perlu Diketahui", link: "/artikel/3" },
     { image: image4, title: "5 Buah Rendah Kalori yang Cocok untuk Diet Obesitas", link: "/artikel/4" },

@@ -71,7 +71,7 @@ export default function FormLoginDokter() {
       </div>
 
       <div className="flex flex-col gap-4">
-        <Button className="w-full" size="lg" type="submit">
+        <Button className="w-full" size="lg" type="submit" onClick={() => navigate("/homedokter")}>
           Masuk
         </Button>
         <Button

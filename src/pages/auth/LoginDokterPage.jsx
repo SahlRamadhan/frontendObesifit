@@ -15,18 +15,16 @@ export default function LoginDokterPage() {
         </CardHeader>
 
         <div className="flex flex-col space-y-1 text-center">
-          <h3 className="font-semibold text-base">
-            Bergabunglah sebagai Ahli Kesehatan
-          </h3>
-          <p className="font-light text-[10px] md:text-xs">
-            Dukung masyarakat dengan pengetahuan Anda!
-          </p>
+          <h3 className="font-semibold text-base">Login sebagai Dokter</h3>
+          <p className="font-light text-[10px] md:text-xs">Dukung masyarakat dengan pengetahuan Anda!</p>
         </div>
 
         <CardContent className="flex flex-col space-y-4 mt-4">
-
           <FormLoginDokter />
 
+          <div className="text-center font-bold text-primary text-[14px]">
+            <a href="/dashboard">Kembali ke halaman utama</a>
+          </div>
           <div className="text-center font-bold text-primary text-[14px]">
             <a href="/email-dokter">Lupa Password?</a>
           </div>

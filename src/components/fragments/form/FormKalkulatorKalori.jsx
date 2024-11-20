@@ -60,7 +60,7 @@ export default function FormKalkulatorKalori() {
       text: `Total Kalori Harian: ${tdee.toFixed(2)} kalori`,
     });
 
-    navigate("/halaman-lain");
+    navigate("/hasil-kalori");
   };
 
   return (

@@ -23,7 +23,7 @@ function Navbar({ showKeluar = true }) {
   // Fungsi Logout
   const handleLogout = () => {
     localStorage.removeItem("authToken"); // Hapus token autentikasi (contoh)
-    navigate("/login"); // Redirect ke halaman login
+    navigate("/dashboard"); // Redirect ke halaman login
   };
 
   return (

@@ -32,7 +32,7 @@ export default function FormKalkulatorBMI() {
       text: `Nilai BMI: ${bmi.toFixed(2)}`,
     });
 
-    navigate("/halaman-lain");
+    navigate("/hasil-bmi");
   };
 
   return (
