@@ -13,35 +13,49 @@ const UserList = () => {
     { name: "Must a nice", profilePic: "https://via.placeholder.com/40" },
     { name: "UpinftIpin", profilePic: "https://via.placeholder.com/40" },
     { name: "ShalehPetarunx", profilePic: "https://via.placeholder.com/40" },
-  ]); // State untuk daftar pengguna
-  const [searchTerm, setSearchTerm] = useState(""); // State untuk input pencarian
+  ]);
+  const [searchTerm, setSearchTerm] = useState("");
 
-  // Filter daftar pengguna berdasarkan input pencarian
-  const filteredUsers = users.filter((user) => user.name.toLowerCase().includes(searchTerm.toLowerCase()));
+  const filteredUsers = users.filter((user) =>
+    user.name.toLowerCase().includes(searchTerm.toLowerCase())
+  );
 
   return (
-    <div className="bg-white p-6 rounded-lg shadow-md">
-      <h2 className="text-xl font-semibold text-gray-900 mb-4">Temukan Pengguna</h2>
+    <div className="bg-white p-4 sm:p-6 rounded-lg shadow-md">
+      <h2 className="text-lg sm:text-xl font-semibold text-gray-900 mb-4">Temukan Pengguna</h2>
 
       {/* Search Bar */}
       <div className="mb-6 flex items-center border rounded-lg bg-gray-50 p-2 shadow-sm">
-        <FiSearch className="text-gray-500 mx-3" size={20} />
-        <input type="text" placeholder="Cari pengguna berdasarkan nama" value={searchTerm} onChange={(e) => setSearchTerm(e.target.value)} className="w-full bg-transparent focus:outline-none p-2" />
+        <FiSearch className="text-gray-500 mx-2 sm:mx-3" size={20} />
+        <input
+          type="text"
+          placeholder="Cari pengguna berdasarkan nama"
+          value={searchTerm}
+          onChange={(e) => setSearchTerm(e.target.value)}
+          className="w-full bg-transparent focus:outline-none p-1 sm:p-2"
+        />
       </div>
 
       {/* Daftar Pengguna */}
       <div>
         {filteredUsers.length > 0 ? (
-          <ul className="space-y-4">
+          <ul className="space-y-3 sm:space-y-4">
             {filteredUsers.map((user, index) => (
-              <li key={index} className="flex justify-between items-center bg-gray-50 p-4 rounded-lg shadow-sm hover:shadow-md transition">
-                <div className="flex items-center space-x-4">
-                  <img src={user.profilePic} alt="user" className="w-12 h-12 rounded-full object-cover" />
-                  <p className="text-gray-700 font-medium">{user.name}</p>
+              <li
+                key={index}
+                className="flex flex-col sm:flex-row justify-between items-center bg-gray-50 p-3 sm:p-4 rounded-lg shadow-sm hover:shadow-md transition"
+              >
+                <div className="flex items-center space-x-3 sm:space-x-4">
+                  <img
+                    src={user.profilePic}
+                    alt="user"
+                    className="w-10 h-10 sm:w-12 sm:h-12 rounded-full object-cover"
+                  />
+                  <p className="text-gray-700 text-sm sm:text-base font-medium">{user.name}</p>
                 </div>
                 <FiX
                   className="text-red-500 cursor-pointer hover:text-red-700 transition"
-                  size={24}
+                  size={20}
                   onClick={() => {
                     setUsers(users.filter((u) => u.name !== user.name));
                   }}

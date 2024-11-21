@@ -1,13 +1,16 @@
 import React from "react";
 
 const VideoStats = () => {
+  const stats = [{ title: "Total Video", value: 83 }];
+
   return (
-    <div className="grid grid-cols-2 gap-6">
-      {/* Total Pengguna */}
-      <div className="bg-white p-6 rounded-lg shadow-md">
-        <h2 className="text-lg font-semibold mb-2">Total Video</h2>
-        <p className="text-4xl font-bold text-gray-800">2</p>
-      </div>
+    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      {stats.map((stat, index) => (
+        <div key={index} className="bg-white p-4 sm:p-6 rounded-lg shadow-md">
+          <h2 className="text-lg font-semibold text-gray-700 mb-2">{stat.title}</h2>
+          <p className="text-4xl font-bold text-gray-800">{stat.value}</p>
+        </div>
+      ))}
     </div>
   );
 };

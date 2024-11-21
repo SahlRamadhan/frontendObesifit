@@ -1,28 +1,26 @@
 import React from "react";
-import SidebarHomeAdmin from "@/components/ui/SidebarHomeAdmin";
-import NavbarAdmin from "@/components/ui/NavbarAdmin";
-import FormDaftarDokterAdmin from "@/components/fragments/formdokter/FormDaftarDokterAdmin";
+import SidebarHomeAdmin from "@/components/fragments/homeadmin/SidebarHomeAdmin";
+import NavbarAdmin from "@/components/fragments/homeadmin/NavbarAdmin";
+import FormDaftarDokterAdmin from "@/components/fragments/formkelola/FormDaftarDokterAdmin";
 
 const DaftarDokterAdminPage = () => {
   return (
-    <div className="flex">
+    <div className="flex bg-gray-100 min-h-screen">
       {/* Sidebar */}
-      <SidebarHomeAdmin />
+      <div className="fixed top-0 left-0">
+        <SidebarHomeAdmin />
+      </div>
 
       {/* Main Content */}
-      <div className="flex-1 bg-gray-50">
+      <div className="flex-1 md:ml-[250px] ml-[80px]">
         <NavbarAdmin />
-        <div className="p-6">
-          <h1 className="text-2xl font-bold mb-6">Kelola Pendaftaran Dokter</h1>
+        <div className="pt-[100px] px-6 sm:px-8 pb-8">
+          <h1 className="text-3xl font-bold text-gray-900 mb-8">Kelola Daftar Dokter</h1>
 
-          {/* Total Pendaftaran Dokter */}
-          <div className="bg-gray-100 p-4 rounded-lg shadow-md mb-6">
-            <h2 className="text-lg text-gray-600">Total Pendaftaran Dokter</h2>
-            <p className="text-2xl font-semibold mt-2">2</p>
+          {/* Statistik Dokter */}
+          <div className="mb-8">
+            <FormDaftarDokterAdmin />
           </div>
-
-          {/* Form Daftar Dokter */}
-          <FormDaftarDokterAdmin />
         </div>
       </div>
     </div>

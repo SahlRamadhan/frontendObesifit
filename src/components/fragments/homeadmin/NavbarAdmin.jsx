@@ -10,48 +10,36 @@ const NavbarAdmin = () => {
     navigate("/editprofil-admin"); // Ganti dengan path halaman Edit Profil Anda
   };
 
-  const toggleDropdown = () => {
-    setIsDropdownVisible(!isDropdownVisible); // Toggle visibilitas dropdown
-  };
-
   return (
-    <div className="bg-white flex justify-between items-center px-6 py-4 shadow-md fixed top-0 left-0 w-full z-10">
-      <div className="flex items-center space-x-4">
-        <h1 className="text-3xl font-bold text-gray-800">ObesiFit</h1>
+    <div className="bg-white flex flex-col md:flex-row justify-between items-center px-4 py-3 shadow-md fixed top-0 left-0 w-full z-10">
+      {/* Logo */}
+      <div className="flex items-center justify-between w-full md:w-auto mb-4 md:mb-0">
+        <h1 className="text-2xl font-bold text-gray-800">ObesiFit</h1>
+        <button className="md:hidden text-gray-600 focus:outline-none" onClick={() => setIsDropdownVisible(!isDropdownVisible)}>
+          {/* Menu Icon */}
+          <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16m-7 6h7" />
+          </svg>
+        </button>
       </div>
-      <input type="text" placeholder="Mau cari apa nih?" className="border rounded-full px-4 py-2 w-1/3 bg-gray-100 text-gray-600 focus:outline-none" />
-      <div className="flex items-center space-x-6 relative">
-        {/* Notifikasi */}
-        <div
-          className="flex items-center space-x-2 text-gray-600 cursor-pointer"
-          onClick={toggleDropdown} // Tampilkan/semmbunyikan dropdown
-        >
-          <span>🔔</span>
-          <span>Notifikasi</span>
+
+      {/* Search Bar */}
+      <div className={`${isDropdownVisible ? "block" : "hidden"} md:flex w-full md:w-1/3 bg-gray-100 rounded-full px-4 py-2 mt-2 md:mt-0`}>
+        <input type="text" placeholder="Mau cari apa nih?" className="w-full bg-transparent text-gray-600 focus:outline-none" />
+      </div>
+
+      {/* Right Section */}
+      <div className={`${isDropdownVisible ? "flex" : "hidden"} md:flex flex-col md:flex-row items-center space-y-4 md:space-y-0 md:space-x-4 mt-4 md:mt-0 w-full md:w-auto`}>
+        {/* Greeting */}
+        <h2 className="text-sm font-semibold text-gray-600">Hallo, Admin</h2>
+
+        {/* Profile */}
+        <div className="flex items-center space-x-2">
+          <img src={imagesAdmin} alt="profile" className="w-10 h-10 rounded-full border border-gray-300 cursor-pointer" onClick={handleProfileClick} />
         </div>
 
-        {/* Dropdown Notifikasi */}
-        {isDropdownVisible && (
-          <div className="absolute top-12 right-0 bg-white shadow-md rounded-lg p-4 w-64">
-            <p className="text-gray-700 font-medium">Notifikasi</p>
-            <ul className="mt-2 space-y-2">
-              <li className="text-gray-600 hover:text-gray-900 cursor-pointer">Notifikasi 1</li>
-              <li className="text-gray-600 hover:text-gray-900 cursor-pointer">Notifikasi 2</li>
-              <li className="text-gray-600 hover:text-gray-900 cursor-pointer">Notifikasi 3</li>
-            </ul>
-          </div>
-        )}
-
-        {/* Profil */}
-        <img
-          src={imagesAdmin}
-          alt="profile"
-          className="w-10 h-10 rounded-full border border-gray-300 cursor-pointer"
-          onClick={handleProfileClick} // Tambahkan onClick untuk navigasi
-        />
-
-        {/* Tombol Keluar */}
-        <button className="bg-red-500 text-white px-4 py-2 rounded-lg hover:bg-red-600 transition">Keluar</button>
+        {/* Logout Button */}
+        <button className="bg-red-500 text-white px-6 py-2 text-sm rounded-lg hover:bg-red-600 transition">Keluar</button>
       </div>
     </div>
   );
