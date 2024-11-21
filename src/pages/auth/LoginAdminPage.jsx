@@ -1,4 +1,4 @@
-import FormLoginAdmin from "@/components/fragments/form/FormLoginAdmin";
+import FormLoginAdmin from "@/components/fragments/formlogin/FormLoginAdmin";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
@@ -16,9 +16,7 @@ export default function LoginAdminPage() {
 
         <div className="flex flex-col space-y-1 text-center">
           <h3 className="font-semibold text-base">Admin</h3>
-          <p className="font-light text-[10px] md:text-xs">
-            Login sebagai admin ObesiFit
-          </p>
+          <p className="font-light text-[10px] md:text-xs">Login sebagai admin ObesiFit</p>
         </div>
 
         <CardContent className="flex flex-col space-y-4 mt-4">

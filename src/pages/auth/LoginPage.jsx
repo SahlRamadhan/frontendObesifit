@@ -1,4 +1,4 @@
-import FormLogin from "@/components/fragments/form/FormLogin";
+import FormLogin from "@/components/fragments/formlogin/FormLogin";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 

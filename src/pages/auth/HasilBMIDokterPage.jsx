@@ -1,4 +1,4 @@
-import FormHasilBMIDokter from "@/components/fragments/form/FormHasilBMIDokter";
+import FormHasilBMIDokter from "@/components/fragments/formhasilkalkulator/FormHasilBMIDokter";
 import Navbar from "@/components/fragments/homedokter/NavbarDokter";
 import FooterUser from "@/components/fragments/homeuser/FooterUser";
 

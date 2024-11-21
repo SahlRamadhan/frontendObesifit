@@ -1,4 +1,4 @@
-import FormEmail from "@/components/fragments/form/FormEmail";
+import FormEmail from "@/components/fragments/formemail/FormEmail";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
 export default function EmailPage() {
@@ -15,9 +15,7 @@ export default function EmailPage() {
 
         <div className="flex flex-col space-y-1 text-center">
           <h3 className="font-semibold text-base">Reset Kata Sandimu</h3>
-          <p className="font-light text-[10px] md:text-[10px]">
-            Kami akan mengirimkan kode ke email untuk mereset kata sandi kamu
-          </p>
+          <p className="font-light text-[10px] md:text-[10px]">Kami akan mengirimkan kode ke email untuk mereset kata sandi kamu</p>
         </div>
 
         <CardContent className="flex flex-col space-y-4 mt-4">

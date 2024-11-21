@@ -1,4 +1,4 @@
-import FormKalkulatorBMI from "@/components/fragments/form/FormKalkulatorBMI";
+import FormKalkulatorBMI from "@/components/fragments/formkalkulator/FormKalkulatorBMI";
 import BackgroundImage from "@/assets/images 2/banner bmi.png";
 import Navbar from "@/components/fragments/homeuser/NavbarUser";
 import FooterUser from "@/components/fragments/homeuser/FooterUser";

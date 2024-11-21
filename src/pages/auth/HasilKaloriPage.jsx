@@ -1,4 +1,4 @@
-import FormHasilKalori from "@/components/fragments/form/FormHasilKalori";
+import FormHasilKalori from "@/components/fragments/formhasilkalkulator/FormHasilKalori";
 import Navbar from "@/components/fragments/homeuser/NavbarUser";
 import FooterUser from "@/components/fragments/homeuser/FooterUser";
 
@@ -9,7 +9,7 @@ export default function HasilKaloriPage() {
       <Navbar />
 
       {/* Konten Utama */}
-      <main className="flex flex-col items-center flex-grow mt-20"> 
+      <main className="flex flex-col items-center flex-grow mt-20">
         <FormHasilKalori />
       </main>
 

@@ -1,4 +1,4 @@
-import FormEmailDokter from "@/components/fragments/form/FormEmailDokter";
+import FormEmailDokter from "@/components/fragments/formemail/FormEmailDokter";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
 export default function EmailDokterPage() {
@@ -15,18 +15,14 @@ export default function EmailDokterPage() {
 
         <div className="flex flex-col space-y-1 text-center">
           <h3 className="font-semibold text-base">Reset Kata Sandimu</h3>
-          <p className="font-light text-[10px] md:text-[10px]">
-            Kami akan mengirimkan kode ke email untuk mereset kata sandi kamu
-          </p>
+          <p className="font-light text-[10px] md:text-[10px]">Kami akan mengirimkan kode ke email untuk mereset kata sandi kamu</p>
         </div>
 
         <CardContent className="flex flex-col space-y-4 mt-4">
           <FormEmailDokter />
 
           <div className="text-center text-primary text-xs md:text-[14px] font-bold mt-2">
-            <a href="/login-dokter">
-              Kembali ke halaman login?
-            </a>
+            <a href="/login-dokter">Kembali ke halaman login?</a>
           </div>
         </CardContent>
       </Card>

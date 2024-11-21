@@ -1,8 +1,5 @@
-import FormTataCaraPembayaran from "@/components/fragments/form/FormTataCaraPembayaran";
-
+import FormTataCaraPembayaran from "@/components/fragments/formpembayaran/FormTataCaraPembayaran";
 
 export default function TataCaraPembayaranPage() {
-  return (
-    <FormTataCaraPembayaran />
-  );
+  return <FormTataCaraPembayaran />;
 }

@@ -1,4 +1,4 @@
-import FormHasilBMI from "@/components/fragments/form/FormHasilBMI";
+import FormHasilBMI from "@/components/fragments/formhasilkalkulator/FormHasilBMI";
 import Navbar from "@/components/fragments/homeuser/NavbarUser";
 import FooterUser from "@/components/fragments/homeuser/FooterUser";
 
@@ -13,9 +13,7 @@ export default function HasilBMIPage() {
         <FormHasilBMI />
       </main>
 
-      
       <FooterUser />
     </section>
-    
   );
 }

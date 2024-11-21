@@ -1,7 +1,5 @@
 import React from "react";
-import FormListSesiKonsul from "@/components/fragments/form/formlistsesikonsul";
-import { FaFacebookF, FaInstagram, FaYoutube } from "react-icons/fa";
-import { FaXTwitter } from "react-icons/fa6";
+import FormListSesiKonsul from "@/components/fragments/formdokter/FormListSesiKonsul";
 import Navbar from "@/components/fragments/homedokter/NavbarDokter";
 import FooterUser from "@/components/fragments/homeuser/FooterUser";
 

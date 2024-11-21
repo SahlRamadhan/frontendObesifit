@@ -1,7 +1,7 @@
-import React from 'react';
-import SidebarHomeAdmin from '@/components/ui/SidebarHomeAdmin';
-import NavbarAdmin from '@/components/ui/NavbarAdmin';
-import FormDaftarDokterAdmin from '@/components/fragments/form/FormDaftarDokterAdmin';
+import React from "react";
+import SidebarHomeAdmin from "@/components/ui/SidebarHomeAdmin";
+import NavbarAdmin from "@/components/ui/NavbarAdmin";
+import FormDaftarDokterAdmin from "@/components/fragments/formdokter/FormDaftarDokterAdmin";
 
 const DaftarDokterAdminPage = () => {
   return (

@@ -1,4 +1,4 @@
-import FormGantiEmail from "@/components/fragments/form/FormGantiEmail";
+import FormGantiEmail from "@/components/fragments/formemail/FormGantiEmail";
 import Image from "@/assets/images 2/Profil.jpg";
 import Navbar from "@/components/fragments/homeuser/NavbarUser";
 
@@ -10,7 +10,6 @@ export default function GantiEmailPage() {
 
       {/* Konten utama */}
       <div className="flex flex-grow flex-col items-center justify-center">
-        
         {/* Bagian gambar profil */}
         <div className="flex flex-col items-center mb-8">
           <img src={Image} alt="Profil" className="w-32 h-32 rounded-full shadow-lg" />

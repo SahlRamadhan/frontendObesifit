@@ -1,7 +1,7 @@
 import BackgroundImage from "@/assets/images 2/banner bmi.png";
 import Navbar from "@/components/fragments/homedokter/NavbarDokter";
 import FooterUser from "@/components/fragments/homeuser/FooterUser";
-import FormKalkulatorBMIDokter from "@/components/fragments/form/FormKalkulatorBMIDokter";
+import FormKalkulatorBMIDokter from "@/components/fragments/formkalkulator/FormKalkulatorBMIDokter";
 
 export default function KalkulatorBMIPage() {
   return (

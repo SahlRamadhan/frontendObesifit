@@ -1,4 +1,4 @@
-import FormListDokter from "@/components/fragments/form/FormListDokter";
+import FormListDokter from "@/components/fragments/formdokter/FormListDokter";
 import bannerImage from "@/assets/images 2/banner dokter.png";
 import Navbar from "@/components/fragments/homeuser/NavbarUser";
 import FooterUser from "@/components/fragments/homeuser/FooterUser";
@@ -89,7 +89,9 @@ export default function ListDokterPage() {
               <div className="flex-1 pr-4 text-center md:text-left">
                 <p className="text-gray-700 font-bold text-xm mb-2">Yuk, langganan sekarang bareng ObesiFit!</p>
                 <p className="text-gray-600 text-sm">Nikmati akses konsultasi ke dokter dan pakar kami kapan saja, tanpa batas waktu!</p>
-                <button className="font-bold mt-4 bg-primary text-white text-sm py-2 px-4 rounded-full hover:bg-teal-600" onClick={() => navigate("/pembayaran-langganan")}>Ayo Berlangganan!</button>
+                <button className="font-bold mt-4 bg-primary text-white text-sm py-2 px-4 rounded-full hover:bg-teal-600" onClick={() => navigate("/pembayaran-langganan")}>
+                  Ayo Berlangganan!
+                </button>
               </div>
               {/* Kolom Kanan */}
               <div className="flex-3 flex justify-center md:justify-end mt-4 md:mt-0">

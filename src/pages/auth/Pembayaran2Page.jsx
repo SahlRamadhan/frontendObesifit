@@ -1,4 +1,4 @@
-import FormPembayaran2 from "@/components/fragments/form/FormPembayaran2";
+import FormPembayaran2 from "@/components/fragments/formpembayaran/FormPembayaran2";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import Image from "@/assets/images 2/Pembayaran2.png";
 

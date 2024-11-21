@@ -1,4 +1,4 @@
-import FormKalkulatorKalori from "@/components/fragments/form/FormKalkulatorKalori";
+import FormKalkulatorKalori from "@/components/fragments/formkalkulator/FormKalkulatorKalori";
 import BackgroundImage from "@/assets/images 2/banner kalori.png";
 import Navbar from "@/components/fragments/homeuser/NavbarUser";
 import FooterUser from "@/components/fragments/homeuser/FooterUser";

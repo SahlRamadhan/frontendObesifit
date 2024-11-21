@@ -1,4 +1,4 @@
-import FormPembayaranLangganan from "@/components/fragments/form/FormPembayaranLangganan";
+import FormPembayaranLangganan from "@/components/fragments/formpembayaran/FormPembayaranLangganan";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import Image from "@/assets/images 2/Pembayaran.png";
 export default function PembayaranLanggananPage() {
@@ -14,18 +14,12 @@ export default function PembayaranLanggananPage() {
         </CardHeader>
 
         <div className="flex flex-col space-y-1 text-center">
-          <h3 className="font-semibold text-sm">
-            Konsultasi dengan Para Dokter/Ahli Tanpa Batas
-          </h3>
+          <h3 className="font-semibold text-sm">Konsultasi dengan Para Dokter/Ahli Tanpa Batas</h3>
           <p className="font-semibold text-sm">Hanya dengan Rp. 49,000</p>
         </div>
 
         <div className="flex justify-center mt-4">
-          <img
-            src={Image}
-            alt="Promo Berlangganan"
-            className="w-full max-w-xs drop-shadow-2xl py-5 rounded-[13px]"
-          />
+          <img src={Image} alt="Promo Berlangganan" className="w-full max-w-xs drop-shadow-2xl py-5 rounded-[13px]" />
         </div>
 
         <CardContent className="flex flex-col space-y-4 mt-4">
