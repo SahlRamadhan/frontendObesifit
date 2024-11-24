@@ -6,8 +6,7 @@ function Navbar({ showKeluar = true }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false); // State untuk toggle menu
   const [isMobile, setIsMobile] = useState(false); // State untuk mendeteksi mobile view
   const navigate = useNavigate();
-  const { logout } = useAuth();
-
+  const { logout, userData } = useAuth();
   // Deteksi ukuran layar
   useEffect(() => {
     const handleResize = () => {
@@ -67,7 +66,7 @@ function Navbar({ showKeluar = true }) {
           </li>
           <li>
             <Link to="/edit-profil">
-              <img src="src/assets/images 2/Profil.jpg" alt="Profile" className="w-8 h-8 md:w-10 md:h-10 rounded-full cursor-pointer" />
+              <img src={userData.images} alt="Profile" className="w-8 h-8 md:w-10 md:h-10 rounded-full cursor-pointer" />
             </Link>
           </li>
           {showKeluar && (

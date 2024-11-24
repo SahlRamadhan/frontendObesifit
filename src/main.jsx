@@ -88,7 +88,7 @@ const router = createBrowserRouter([
     element: <LoginAdminPage />,
   },
   {
-    path: "/register2",
+    path: "/verifyotp",
     element: <Register2Page />,
   },
   {

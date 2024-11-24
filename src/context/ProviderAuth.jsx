@@ -14,8 +14,15 @@ export const ProtectedRoute = ({ children, role }) => {
 
   // Jika belum login
   if (!isAuthenticated) {
-    console.log("User belum login. Redirecting ke halaman login.");
-    return <Navigate to="/login" state={{ from: location }} replace />;
+    if (location.pathname.startsWith("/homeuser")) {
+      return <Navigate to="/login" replace />;
+    }
+    if (location.pathname.startsWith("/homedokter")) {
+      return <Navigate to="/login-dokter" replace />;
+    }
+    if (location.pathname.startsWith("/homeadmin")) {
+      return <Navigate to="/login-admin" replace />;
+    }
   }
 
   // Jika role tidak sesuai

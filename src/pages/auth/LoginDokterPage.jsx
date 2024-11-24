@@ -26,7 +26,7 @@ export default function LoginDokterPage() {
             <a href="/dashboard">Kembali ke halaman utama</a>
           </div>
           <div className="text-center font-bold text-primary text-[14px]">
-            <a href="/email-dokter">Lupa Password?</a>
+            <a href="/email?role=dokter">Lupa Password?</a>
           </div>
         </CardContent>
       </Card>

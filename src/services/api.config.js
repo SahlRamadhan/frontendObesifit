@@ -1,5 +1,6 @@
 import axios from "axios"
 import { refreshToken } from "./auth.config";
+import {jwtDecode} from "jwt-decode";
 
 
 export const ObesifitApi = axios.create({
@@ -9,22 +10,20 @@ export const ObesifitApi = axios.create({
 
 ObesifitApi.interceptors.request.use(
   async (config) => {
-    let token = config.headers.Authorization?.split(" ")[1];
+    const token = config.headers.Authorization?.split(" ")[1];
 
     if (token) {
-      // Decode token untuk memeriksa expiration
       const decoded = jwtDecode(token);
       const currentTime = Date.now() / 1000;
 
+      // Jika token hampir kedaluwarsa, gunakan refresh token
       if (decoded.exp < currentTime + 60) {
-        // Token hampir habis, refresh token
-        const response = await refreshToken(); // Memanggil API refresh token
-        token = response.accessToken;
-
-        // Tambahkan token baru ke header Authorization
-        config.headers.Authorization = `Bearer ${token}`;
+        console.log("Access token hampir kedaluwarsa. Meminta token baru...");
+        const response = await refreshToken(); // Panggil endpoint refresh token
+        config.headers.Authorization = `Bearer ${response.accessToken}`;
       }
     }
+
     return config;
   },
   (error) => Promise.reject(error)

@@ -1,4 +1,4 @@
-import FormEmailDokter from "@/components/fragments/formemail/FormEmailDokter";
+import FormEmail from "@/components/fragments/formemail/FormEmail";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
 export default function EmailDokterPage() {
@@ -19,7 +19,7 @@ export default function EmailDokterPage() {
         </div>
 
         <CardContent className="flex flex-col space-y-4 mt-4">
-          <FormEmailDokter />
+          <FormEmail />
 
           <div className="text-center text-primary text-xs md:text-[14px] font-bold mt-2">
             <a href="/login-dokter">Kembali ke halaman login?</a>

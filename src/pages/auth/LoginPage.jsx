@@ -33,7 +33,7 @@ export default function LoginPage() {
             <a href="/">Kembali ke halaman utama</a>
           </div>
           <div className="text-center font-bold text-primary text-[14px]">
-            <a href="/email">Lupa Password?</a>
+            <a href="/email?role=user">Lupa Password?</a>
           </div>
         </CardContent>
       </Card>

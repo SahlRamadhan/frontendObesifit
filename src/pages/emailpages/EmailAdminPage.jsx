@@ -1,4 +1,4 @@
-import FormEmailAdmin from "@/components/fragments/formemail/FormEmailAdmin";
+import FormEmail from "@/components/fragments/formemail/FormEmail";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
 export default function EmailAdminPage() {
@@ -19,7 +19,7 @@ export default function EmailAdminPage() {
         </div>
 
         <CardContent className="flex flex-col space-y-4 mt-4">
-          <FormEmailAdmin />
+          <FormEmail />
 
           <div className="text-center text-primary text-xs md:text-[14px] font-bold mt-2">
             <a href="/login-admin">Kembali ke halaman login?</a>

@@ -23,7 +23,7 @@ export default function LoginAdminPage() {
           <FormLoginAdmin />
 
           <div className="text-center font-bold text-primary text-[14px]">
-            <a href="/email-admin">Lupa Password?</a>
+            <a href="/email?role=admin">Lupa Password?</a>
           </div>
         </CardContent>
       </Card>
