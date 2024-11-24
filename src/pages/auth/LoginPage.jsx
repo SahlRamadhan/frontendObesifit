@@ -30,7 +30,7 @@ export default function LoginPage() {
           <FormLogin />
 
           <div className="text-center font-bold text-primary text-[14px]">
-            <a href="/dashboard">Kembali ke halaman utama</a>
+            <a href="/">Kembali ke halaman utama</a>
           </div>
           <div className="text-center font-bold text-primary text-[14px]">
             <a href="/email">Lupa Password?</a>

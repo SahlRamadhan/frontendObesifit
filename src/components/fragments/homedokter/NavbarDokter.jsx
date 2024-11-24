@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import { useAuth } from "@/context/AuthContext";
 
 function Navbar({ showKeluar = true }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false); // State untuk toggle menu
   const [isMobile, setIsMobile] = useState(false); // State untuk mendeteksi mobile view
+  const { logout } = useAuth();
   const navigate = useNavigate();
 
   // Deteksi ukuran layar
@@ -21,9 +23,13 @@ function Navbar({ showKeluar = true }) {
   }, []);
 
   // Fungsi Logout
-  const handleLogout = () => {
-    localStorage.removeItem("authToken"); // Hapus token autentikasi (contoh)
-    navigate("/login-dokter"); // Redirect ke halaman login
+  const handleLogout = async () => {
+    try {
+      await logout();
+      navigate("/login-dokter");
+    } catch (error) {
+      console.log("logout Gagal!!", error);
+    }
   };
 
   return (
@@ -91,22 +97,22 @@ function Navbar({ showKeluar = true }) {
               </Link>
             </li>
             <li>
-              <Link to="/artikeluser" className="hover:text-gray-300" onClick={() => setIsMenuOpen(false)}>
+              <Link to="/buatartikeldokter" className="hover:text-gray-300" onClick={() => setIsMenuOpen(false)}>
                 Artikel
               </Link>
             </li>
             <li>
-              <Link to="/videouser" className="hover:text-gray-300" onClick={() => setIsMenuOpen(false)}>
+              <Link to="/buatvideodokter" className="hover:text-gray-300" onClick={() => setIsMenuOpen(false)}>
                 Video
               </Link>
             </li>
             <li>
-              <Link to="/kalkulator-bmi" className="hover:text-gray-300" onClick={() => setIsMenuOpen(false)}>
+              <Link to="/kalkulatorbmi-dokter" className="hover:text-gray-300" onClick={() => setIsMenuOpen(false)}>
                 Kalkulator
               </Link>
             </li>
             <li>
-              <Link to="/list-dokter" className="hover:text-gray-300" onClick={() => setIsMenuOpen(false)}>
+              <Link to="/list-konsul" className="hover:text-gray-300" onClick={() => setIsMenuOpen(false)}>
                 Konsultasi
               </Link>
             </li>

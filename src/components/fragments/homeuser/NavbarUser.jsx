@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import { useAuth } from "@/context/AuthContext";
 
 function Navbar({ showKeluar = true }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false); // State untuk toggle menu
   const [isMobile, setIsMobile] = useState(false); // State untuk mendeteksi mobile view
   const navigate = useNavigate();
+  const { logout } = useAuth();
 
   // Deteksi ukuran layar
   useEffect(() => {
@@ -21,9 +23,13 @@ function Navbar({ showKeluar = true }) {
   }, []);
 
   // Fungsi Logout
-  const handleLogout = () => {
-    localStorage.removeItem("authToken"); // Hapus token autentikasi (contoh)
-    navigate("/dashboard"); // Redirect ke halaman login
+  const handleLogout = async () => {
+    try {
+      await logout(); // Panggil fungsi logout dari AuthContext
+      navigate("/login"); // Redirect ke halaman login
+    } catch (error) {
+      console.error("Logout gagal:", error);
+    }
   };
 
   return (

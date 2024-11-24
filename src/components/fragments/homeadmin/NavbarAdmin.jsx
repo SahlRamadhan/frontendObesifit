@@ -1,13 +1,24 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import imagesAdmin from "@/assets/images 2/profil admin.jpg";
+import { useAuth } from "@/context/AuthContext";
 
 const NavbarAdmin = () => {
   const navigate = useNavigate();
   const [isDropdownVisible, setIsDropdownVisible] = useState(false);
+  const { userData, logout } = useAuth();
 
   const handleProfileClick = () => {
-    navigate("/editprofil-admin"); // Ganti dengan path halaman Edit Profil Anda
+    navigate("/editprofil-admin");
+  };
+  // Fungsi Logout
+  const handleLogout = async () => {
+    try {
+      await logout(); // Panggil fungsi logout dari AuthContext
+      navigate("/login-admin"); // Redirect ke halaman login
+    } catch (error) {
+      console.error("Logout gagal:", error);
+    }
   };
 
   return (
@@ -31,7 +42,7 @@ const NavbarAdmin = () => {
       {/* Right Section */}
       <div className={`${isDropdownVisible ? "flex" : "hidden"} md:flex flex-col md:flex-row items-center space-y-4 md:space-y-0 md:space-x-4 mt-4 md:mt-0 w-full md:w-auto`}>
         {/* Greeting */}
-        <h2 className="text-sm font-semibold text-gray-600">Hallo, Admin</h2>
+        <h2 className="text-sm font-semibold text-gray-600">Hallo, {userData.name}</h2>
 
         {/* Profile */}
         <div className="flex items-center space-x-2">
@@ -39,7 +50,9 @@ const NavbarAdmin = () => {
         </div>
 
         {/* Logout Button */}
-        <button className="bg-red-500 text-white px-6 py-2 text-sm rounded-lg hover:bg-red-600 transition">Keluar</button>
+        <button className="bg-red-500 text-white px-6 py-2 text-sm rounded-lg hover:bg-red-600 transition"  onClick={handleLogout}>
+          Keluar
+        </button>
       </div>
     </div>
   );

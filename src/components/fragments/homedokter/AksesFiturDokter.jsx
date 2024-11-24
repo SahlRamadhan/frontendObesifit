@@ -7,9 +7,9 @@ import { useNavigate } from 'react-router-dom';
 function AksesFiturDokter() {
   const navigate = useNavigate();
   const features = [
-    { title: "Buat Artikel", image: BuatArtikelImage, description: "Tulis artikel kesehatan yang bermanfaat.", link: "/artikeldokter" },
-    { title: "Buat Video", image: BuatVideoImage, description: "Unggah video edukasi kesehatan.", link: "/videodokter" },
-    { title: "Sesi Konsultasi", image: SesiKonsultasiImage, description: "Atur sesi konsultasi dengan pasien.", link: "/sesikonsultasidokter" },
+    { title: "Buat Artikel", image: BuatArtikelImage, description: "Tulis artikel kesehatan yang bermanfaat.", link: "/buatartikeldokter" },
+    { title: "Buat Video", image: BuatVideoImage, description: "Unggah video edukasi kesehatan.", link: "/buatvideodokter" },
+    { title: "Sesi Konsultasi", image: SesiKonsultasiImage, description: "Atur sesi konsultasi dengan pasien.", link: "/list-konsul" },
   ];
 
   return (

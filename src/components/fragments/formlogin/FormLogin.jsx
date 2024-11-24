@@ -1,46 +1,52 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import { useAuth } from "@/context/AuthContext"; // Gunakan AuthContext
 
 export default function FormLogin() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [errors, setErrors] = useState({ email: "", password: "" });
-
+  const [message, setMessage] = useState("");
+  const { login } = useAuth(); // Panggil fungsi login dari AuthContext
   const navigate = useNavigate();
+  const location = useLocation();
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     let newErrors = { email: "", password: "" };
 
-    // Validasi email
+    // Validasi input
     if (!email) {
       newErrors.email = "Alamat email wajib diisi";
     } else if (!/\S+@\S+\.\S+/.test(email)) {
       newErrors.email = "Alamat email tidak valid";
     }
 
-    // Validasi password
     if (!password) {
       newErrors.password = "Kata sandi wajib diisi";
     } else if (password.length < 6) {
       newErrors.password = "Kata sandi harus minimal 6 karakter";
     }
 
-    // Jika ada error, set state
     if (newErrors.email || newErrors.password) {
       setErrors(newErrors);
       return;
     }
 
-    // Proses submit di sini
-    console.log("Form submitted!", { email, password });
-    // Reset form
-    setEmail("");
-    setPassword("");
-    setErrors({ email: "", password: "" });
+    try {
+      // Panggil fungsi login dari AuthContext
+      const credentials = { email, password }; // Dapatkan email dan password dari form
+      const expectedRole = 2; // Misalnya, role 2 untuk User
+
+      await login(credentials, expectedRole); // Panggil fungsi login dari AuthContext
+      const redirectTo = location.state?.from?.pathname || "/homeuser";
+      navigate(redirectTo, { replace: true });
+    } catch (error) {
+      setMessage(error.response?.data?.msg || "Terjadi kesalahan saat login.");
+    }
   };
 
   return (
@@ -59,13 +65,16 @@ export default function FormLogin() {
       </div>
 
       <div className="flex flex-col gap-4">
-        <Button className="w-full" size="lg" type="submit" onClick={() => navigate("/homeuser")}>
+        <Button className="w-full" size="lg" type="submit">
           Masuk
         </Button>
-        <Button className="w-full text-primary font-bold" variant="outline" size="lg" onClick={() => navigate("/register")}>
-          Belum punya akun? Daftar disini
-        </Button>
       </div>
+
+      <Button className="w-full text-primary font-bold" variant="outline" size="lg" onClick={() => navigate("/register")}>
+        Belum punya akun? Daftar disini
+      </Button>
+
+      {message && <p className="text-red-500">{message}</p>}
     </form>
   );
 }

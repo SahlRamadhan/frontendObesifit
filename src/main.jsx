@@ -4,52 +4,55 @@ import "./index.css";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import LoginPage from "@/pages/auth/LoginPage";
 import RegisterPage from "@/pages/auth/RegisterPage";
-import EmailPage from "@/pages/auth/EmailPage";
+import EmailPage from "@/pages/emailpages/EmailPage";
 import LoginDokterPage from "@/pages/auth/LoginDokterPage";
 import RegisterDokterPage from "@/pages/auth/RegisterDokterPage";
-import EmailDokterPage from "./pages/auth/EmailDokterPage";
+import EmailDokterPage from "./pages/emailpages/EmailDokterPage";
 import LoginAdminPage from "./pages/auth/LoginAdminPage";
 import Dashboard from "./pages/DashboardPage";
 import Register2Page from "./pages/auth/Register2Page";
-import PembayaranLanggananPage from "./pages/auth/PembayaranLanggananPage";
-import TataCaraPembayaranPage from "./pages/auth/TataCaraPembayaranPage";
-import Pembayaran2Page from "./pages/auth/Pembayaran2Page";
-import EditProfilPage from "./pages/auth/EditProfilPage";
-import GantiEmailPage from "./pages/auth/GantiEmailPage";
-import EditProfilDokterPage from "./pages/auth/EditProfilDokterPage";
-import GantiEmailDokterPage from "./pages/auth/GantiEmailDokterPage";
-import EmailAdminPage from "./pages/auth/EmailAdminPage";
-import EditProfilAdminPage from "./pages/auth/EditProfilAdminPage";
-import GantiEmailAdminPage from "./pages/auth/GantiEmailAdminPage";
-import KalkulatorBMIPage from "./pages/auth/KalkulatorBMIPage";
-import KalkulatorKaloriPage from "./pages/auth/KalkulatorKaloriPage";
-import HasilBMIPage from "./pages/auth/HasilBMIPage";
-import HasilKaloriPage from "./pages/auth/HasilKaloriPage";
-import KalkulatorBMIDokterPage from "./pages/auth/KalkulatorBMIDokterPage";
-import HasilBMIDokterPage from "./pages/auth/HasilBMIDokterPage";
-import KalkulatorKaloriDokterPage from "./pages/auth/KalkulatorKaloriDokterPage";
-import HasilKaloriDokterPage from "./pages/auth/HasilKaloriDokterPage"
-import ListDokterPage from "./pages/auth/ListDokterPage";
-import ListSesiKonsulPage from "./pages/auth/ListSesiKonsulPage";
-import DaftarDokterAdminPage from "./pages/auth/DaftarDokterAdminPage";
-import KelolaDokterPage from "./pages/auth/KelolaDokterPage";
-import KelolaPembayaranPage from "./pages/auth/KelolaPembayaranPage";
-import HomeUser from "./pages/HomeUser";
-import ArtikelUser from "./pages/ArtikelUser";
-import VideoUser from "./pages/VideoUser";
-import HomeDokter from "./pages/HomeDokter";
-import IsiArtikelUserPage from "./pages/IsiArtikelUserPage";
-import IsiVideoUserPage from "./pages/IsiVideoUserPage";
-import ArtikelDokter from "./pages/ArtikelDokter";
-import VideoDokter from "./pages/VideoDokter";
-import IsiArtikelDokterPage from "./pages/IsiArtikelDokterPage";
-import IsiVideoDokterPage from "./pages/IsiVideoDokterPage";
-import BuatArtikelDokterPage from "./pages/BuatArtikelDokterPage";
-import BuatVideoDokterPage from "./pages/BuatVideoDokterPage";
-import HomeAdmin from "./pages/HomeAdmin";
-import KelolaPenggunaPage from "./pages/KelolaPenggunaPage";
-import KelolaArtikelPage from "./pages/KelolaArtikelPage";
-import KelolaVideoPage from "./pages/KelolaVideoPages";
+import PembayaranLanggananPage from "./pages/pembayaranpages/PembayaranLanggananPage";
+import TataCaraPembayaranPage from "./pages/pembayaranpages/TataCaraPembayaranPage";
+import Pembayaran2Page from "./pages/pembayaranpages/Pembayaran2Page";
+import EditProfilPage from "./pages/editpages/EditProfilPage";
+import GantiEmailPage from "./pages/emailpages/GantiEmailPage";
+import EditProfilDokterPage from "./pages/editpages/EditProfilDokterPage";
+import GantiEmailDokterPage from "./pages/emailpages/GantiEmailDokterPage";
+import EmailAdminPage from "./pages/emailpages/EmailAdminPage";
+import EditProfilAdminPage from "./pages/editpages/EditProfilAdminPage";
+import GantiEmailAdminPage from "./pages/emailpages/GantiEmailAdminPage";
+import KalkulatorBMIPage from "./pages/kalkulatorpages/KalkulatorBMIPage";
+import KalkulatorKaloriPage from "./pages/kalkulatorpages/KalkulatorKaloriPage";
+import HasilBMIPage from "./pages/kalkulatorpages/HasilBMIPage";
+import HasilKaloriPage from "./pages/kalkulatorpages/HasilKaloriPage";
+import KalkulatorBMIDokterPage from "./pages/kalkulatorpages/KalkulatorBMIDokterPage";
+import HasilBMIDokterPage from "./pages/kalkulatorpages/HasilBMIDokterPage";
+import KalkulatorKaloriDokterPage from "./pages/kalkulatorpages/KalkulatorKaloriDokterPage";
+import HasilKaloriDokterPage from "./pages/kalkulatorpages/HasilKaloriDokterPage";
+import ListDokterPage from "./pages/dokterkonsultanpages/ListDokterPage";
+import ListSesiKonsulPage from "./pages/dokterkonsultanpages/ListSesiKonsulPage";
+import DaftarDokterAdminPage from "./pages/kelolapeges/DaftarDokterAdminPage";
+import KelolaDokterPage from "./pages/kelolapeges/KelolaDokterPage";
+import KelolaPembayaranPage from "./pages/kelolapeges/KelolaPembayaranPage";
+import HomeUser from "./pages/homepages/HomeUser";
+import ArtikelUser from "./pages/artikelpages/ArtikelUser";
+import VideoUser from "./pages/videopages/VideoUser";
+import HomeDokter from "./pages/homepages/HomeDokter";
+import IsiArtikelUserPage from "./pages/artikelpages/IsiArtikelUserPage";
+import IsiVideoUserPage from "./pages/videopages/IsiVideoUserPage";
+import ArtikelDokter from "./pages/artikelpages/ArtikelDokter";
+import VideoDokter from "./pages/videopages/VideoDokter";
+import IsiArtikelDokterPage from "./pages/artikelpages/IsiArtikelDokterPage";
+import IsiVideoDokterPage from "./pages/videopages/IsiVideoDokterPage";
+import BuatArtikelDokterPage from "./pages/ceratepages/BuatArtikelDokterPage";
+import BuatVideoDokterPage from "./pages/ceratepages/BuatVideoDokterPage";
+import HomeAdmin from "./pages/homepages/HomeAdmin";
+import KelolaPenggunaPage from "./pages/kelolapeges/KelolaPenggunaPage";
+import KelolaArtikelPage from "./pages/kelolapeges/KelolaArtikelPage";
+import KelolaVideoPage from "./pages/kelolapeges/KelolaVideoPages";
+import { AuthProvider } from "./context/AuthContext";
+import { ProtectedRoute } from "./context/ProviderAuth";
+import NotFound from "./pages/404pages/NotFoundPages";
 
 const router = createBrowserRouter([
   {
@@ -85,173 +88,328 @@ const router = createBrowserRouter([
     element: <LoginAdminPage />,
   },
   {
-    path: "/dashboard",
-    element: <Dashboard />,
-  },
-  {
     path: "/register2",
     element: <Register2Page />,
-  },
-  {
-    path: "/pembayaran-langganan",
-    element: <PembayaranLanggananPage />,
-  },
-  {
-    path: "/tatacara-pembayaran",
-    element: <TataCaraPembayaranPage />,
-  },
-  {
-    path: "/pembayaran2",
-    element: <Pembayaran2Page />,
-  },
-  {
-    path: "/edit-profil",
-    element: <EditProfilPage />,
-  },
-  {
-    path: "/ganti-email",
-    element: <GantiEmailPage />,
-  },
-  {
-    path: "/editprofil-dokter",
-    element: <EditProfilDokterPage />,
-  },
-  {
-    path: "/gantiemail-dokter",
-    element: <GantiEmailDokterPage />,
   },
   {
     path: "/email-admin",
     element: <EmailAdminPage />,
   },
   {
-    path: "/editprofil-admin",
-    element: <EditProfilAdminPage />,
-  },
-  {
-    path: "/gantiemail-admin",
-    element: <GantiEmailAdminPage />,
-  },
-  {
-    path: "/kalkulator-bmi",
-    element: <KalkulatorBMIPage />,
-  },
-  {
-    path: "/kalkulator-kalori",
-    element: <KalkulatorKaloriPage />,
-  },
-  {
-    path: "/hasil-bmi",
-    element: <HasilBMIPage />,
-  },
-  {
-    path: "/hasil-kalori",
-    element: <HasilKaloriPage />,
-  },
-  {
-    path: "/kalkulatorbmi-dokter",
-    element: <KalkulatorBMIDokterPage />,
-  },
-  {
-    path: "/hasilbmi-dokter",
-    element: <HasilBMIDokterPage />,
-  },
-  {
-    path: "/kalkulatorkalori-dokter",
-    element: <KalkulatorKaloriDokterPage />,
-  },
-  {
-    path: "/hasilkalori-dokter",
-    element: <HasilKaloriDokterPage />,
-  },
-  {
-    path: "/list-dokter",
-    element: <ListDokterPage />,
-  },
-  {
-    path: "/list-konsul",
-    element: <ListSesiKonsulPage />,
-  },
-  {
-    path: "/daftardokter-admin",
-    element: <DaftarDokterAdminPage />,
-  },
-  {
-    path: "/kelola-dokter",
-    element: <KelolaDokterPage />,
-  },
-  {
-    path: "/kelola-pembayaran",
-    element: <KelolaPembayaranPage />,
-  },
-  {
     path: "/homeuser",
-    element: <HomeUser />,
-  },
-  {
-    path: "/artikeluser",
-    element: <ArtikelUser />,
-  },
-  {
-    path: "/videouser",
-    element: <VideoUser />,
+    element: (
+      <ProtectedRoute role={2}>
+        <HomeUser />
+      </ProtectedRoute>
+    ),
   },
   {
     path: "/homedokter",
-    element: <HomeDokter />,
-  },
-  {
-    path: "/isiartikeluser",
-    element: <IsiArtikelUserPage />,
-  },
-  {
-    path: "/isivideouser",
-    element: <IsiVideoUserPage />,
-  },
-  {
-    path: "/artikeldokter",
-    element: <ArtikelDokter />,
-  },
-  {
-    path: "/videodokter",
-    element: <VideoDokter />,
-  },
-  {
-    path: "/isiartikeldokter",
-    element: <IsiArtikelDokterPage />,
-  },
-  {
-    path: "/isivideodokter",
-    element: <IsiVideoDokterPage />,
-  },
-  {
-    path: "/buatartikeldokter",
-    element: <BuatArtikelDokterPage />,
-  },
-  {
-    path: "/buatvideodokter",
-    element: <BuatVideoDokterPage />,
+    element: (
+      <ProtectedRoute role={3}>
+        <HomeDokter />
+      </ProtectedRoute>
+    ),
   },
   {
     path: "/homeadmin",
-    element: <HomeAdmin />,
+    element: (
+      <ProtectedRoute role={1}>
+        <HomeAdmin />
+      </ProtectedRoute>
+    ),
+  },
+  {
+    path: "/pembayaran-langganan",
+    element: (
+      <ProtectedRoute>
+        <PembayaranLanggananPage />
+      </ProtectedRoute>
+    ),
+  },
+  {
+    path: "/tatacara-pembayaran",
+    element: (
+      <ProtectedRoute>
+        <TataCaraPembayaranPage />
+      </ProtectedRoute>
+    ),
+  },
+  {
+    path: "/pembayaran2",
+    element: (
+      <ProtectedRoute>
+        <Pembayaran2Page />
+      </ProtectedRoute>
+    ),
+  },
+  {
+    path: "/edit-profil",
+    element: (
+      <ProtectedRoute>
+        <EditProfilPage />
+      </ProtectedRoute>
+    ),
+  },
+  {
+    path: "/ganti-email",
+    element: (
+      <ProtectedRoute>
+        <GantiEmailPage />
+      </ProtectedRoute>
+    ),
+  },
+  {
+    path: "/editprofil-dokter",
+    element: (
+      <ProtectedRoute>
+        <EditProfilDokterPage />
+      </ProtectedRoute>
+    ),
+  },
+  {
+    path: "/gantiemail-dokter",
+    element: (
+      <ProtectedRoute>
+        <GantiEmailDokterPage />
+      </ProtectedRoute>
+    ),
+  },
+
+  {
+    path: "/editprofil-admin",
+    element: (
+      <ProtectedRoute>
+        <EditProfilAdminPage />
+      </ProtectedRoute>
+    ),
+  },
+  {
+    path: "/gantiemail-admin",
+    element: (
+      <ProtectedRoute>
+        <GantiEmailAdminPage />
+      </ProtectedRoute>
+    ),
+  },
+  {
+    path: "/kalkulator-bmi",
+    element: (
+      <ProtectedRoute>
+        <KalkulatorBMIPage />
+      </ProtectedRoute>
+    ),
+  },
+  {
+    path: "/kalkulator-kalori",
+    element: (
+      <ProtectedRoute>
+        <KalkulatorKaloriPage />
+      </ProtectedRoute>
+    ),
+  },
+  {
+    path: "/hasil-bmi",
+    element: (
+      <ProtectedRoute>
+        <HasilBMIPage />
+      </ProtectedRoute>
+    ),
+  },
+  {
+    path: "/hasil-kalori",
+    element: (
+      <ProtectedRoute>
+        <HasilKaloriPage />
+      </ProtectedRoute>
+    ),
+  },
+  {
+    path: "/kalkulatorbmi-dokter",
+    element: (
+      <ProtectedRoute>
+        <KalkulatorBMIDokterPage />
+      </ProtectedRoute>
+    ),
+  },
+  {
+    path: "/hasilbmi-dokter",
+    element: (
+      <ProtectedRoute>
+        <HasilBMIDokterPage />
+      </ProtectedRoute>
+    ),
+  },
+  {
+    path: "/kalkulatorkalori-dokter",
+    element: (
+      <ProtectedRoute>
+        <KalkulatorKaloriDokterPage />
+      </ProtectedRoute>
+    ),
+  },
+  {
+    path: "/hasilkalori-dokter",
+    element: (
+      <ProtectedRoute>
+        <HasilKaloriDokterPage />
+      </ProtectedRoute>
+    ),
+  },
+  {
+    path: "/list-dokter",
+    element: (
+      <ProtectedRoute>
+        <ListDokterPage />
+      </ProtectedRoute>
+    ),
+  },
+  {
+    path: "/list-konsul",
+    element: (
+      <ProtectedRoute>
+        <ListSesiKonsulPage />
+      </ProtectedRoute>
+    ),
+  },
+  {
+    path: "/daftardokter-admin",
+    element: (
+      <ProtectedRoute>
+        <DaftarDokterAdminPage />
+      </ProtectedRoute>
+    ),
+  },
+  {
+    path: "/kelola-dokter",
+    element: (
+      <ProtectedRoute>
+        <KelolaDokterPage />
+      </ProtectedRoute>
+    ),
+  },
+  {
+    path: "/kelola-pembayaran",
+    element: (
+      <ProtectedRoute>
+        <KelolaPembayaranPage />
+      </ProtectedRoute>
+    ),
+  },
+  {
+    path: "/artikeluser",
+    element: (
+      <ProtectedRoute>
+        <ArtikelUser />
+      </ProtectedRoute>
+    ),
+  },
+  {
+    path: "/videouser",
+    element: (
+      <ProtectedRoute>
+        <VideoUser />
+      </ProtectedRoute>
+    ),
+  },
+  {
+    path: "/isiartikeluser",
+    element: (
+      <ProtectedRoute>
+        <IsiArtikelUserPage />
+      </ProtectedRoute>
+    ),
+  },
+  {
+    path: "/isivideouser",
+    element: (
+      <ProtectedRoute>
+        <IsiVideoUserPage />
+      </ProtectedRoute>
+    ),
+  },
+  {
+    path: "/artikeldokter",
+    element: (
+      <ProtectedRoute>
+        <ArtikelDokter />
+      </ProtectedRoute>
+    ),
+  },
+  {
+    path: "/videodokter",
+    element: (
+      <ProtectedRoute>
+        <VideoDokter />
+      </ProtectedRoute>
+    ),
+  },
+  {
+    path: "/isiartikeldokter",
+    element: (
+      <ProtectedRoute>
+        <IsiArtikelDokterPage />
+      </ProtectedRoute>
+    ),
+  },
+  {
+    path: "/isivideodokter",
+    element: (
+      <ProtectedRoute>
+        <IsiVideoDokterPage />
+      </ProtectedRoute>
+    ),
+  },
+  {
+    path: "/buatartikeldokter",
+    element: (
+      <ProtectedRoute>
+        <BuatArtikelDokterPage />
+      </ProtectedRoute>
+    ),
+  },
+  {
+    path: "/buatvideodokter",
+    element: (
+      <ProtectedRoute>
+        <BuatVideoDokterPage />
+      </ProtectedRoute>
+    ),
   },
   {
     path: "/kelolapengguna",
-    element: <KelolaPenggunaPage />,
+    element: (
+      <ProtectedRoute>
+        <KelolaPenggunaPage />
+      </ProtectedRoute>
+    ),
   },
   {
     path: "/kelolaartikel",
-    element: <KelolaArtikelPage />,
+    element: (
+      <ProtectedRoute>
+        <KelolaArtikelPage />
+      </ProtectedRoute>
+    ),
   },
   {
     path: "/kelolavideo",
-    element: <KelolaVideoPage />,
+    element: (
+      <ProtectedRoute>
+        <KelolaVideoPage />
+      </ProtectedRoute>
+    ),
+  },
+  {
+    path: "/404",
+    element: <NotFound />,
   },
 ]);
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
-    <RouterProvider router={router} />
+    <AuthProvider>
+      <RouterProvider router={router} />
+    </AuthProvider>
   </StrictMode>
 );
