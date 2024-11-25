@@ -15,12 +15,9 @@ import PembayaranLanggananPage from "./pages/pembayaranpages/PembayaranLangganan
 import TataCaraPembayaranPage from "./pages/pembayaranpages/TataCaraPembayaranPage";
 import Pembayaran2Page from "./pages/pembayaranpages/Pembayaran2Page";
 import EditProfilPage from "./pages/editpages/EditProfilPage";
-import GantiEmailPage from "./pages/emailpages/GantiEmailPage";
 import EditProfilDokterPage from "./pages/editpages/EditProfilDokterPage";
-import GantiEmailDokterPage from "./pages/emailpages/GantiEmailDokterPage";
 import EmailAdminPage from "./pages/emailpages/EmailAdminPage";
 import EditProfilAdminPage from "./pages/editpages/EditProfilAdminPage";
-import GantiEmailAdminPage from "./pages/emailpages/GantiEmailAdminPage";
 import KalkulatorBMIPage from "./pages/kalkulatorpages/KalkulatorBMIPage";
 import KalkulatorKaloriPage from "./pages/kalkulatorpages/KalkulatorKaloriPage";
 import HasilBMIPage from "./pages/kalkulatorpages/HasilBMIPage";
@@ -152,26 +149,10 @@ const router = createBrowserRouter([
     ),
   },
   {
-    path: "/ganti-email",
-    element: (
-      <ProtectedRoute>
-        <GantiEmailPage />
-      </ProtectedRoute>
-    ),
-  },
-  {
     path: "/editprofil-dokter",
     element: (
       <ProtectedRoute>
         <EditProfilDokterPage />
-      </ProtectedRoute>
-    ),
-  },
-  {
-    path: "/gantiemail-dokter",
-    element: (
-      <ProtectedRoute>
-        <GantiEmailDokterPage />
       </ProtectedRoute>
     ),
   },
@@ -181,14 +162,6 @@ const router = createBrowserRouter([
     element: (
       <ProtectedRoute>
         <EditProfilAdminPage />
-      </ProtectedRoute>
-    ),
-  },
-  {
-    path: "/gantiemail-admin",
-    element: (
-      <ProtectedRoute>
-        <GantiEmailAdminPage />
       </ProtectedRoute>
     ),
   },
