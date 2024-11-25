@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { FiSearch, FiX, FiEdit } from "react-icons/fi";
+import { FiSearch,  FiEdit,  FiTrash } from "react-icons/fi";
 
 const ArticleList = () => {
   const [searchTerm, setSearchTerm] = useState("");
@@ -86,7 +86,7 @@ const ArticleList = () => {
                 </div>
                 <div className="flex space-x-3 sm:space-x-4 mt-3 sm:mt-0">
                   <FiEdit className="text-blue-500 cursor-pointer hover:text-blue-700 transition" size={20} onClick={() => handleEditClick(article)} />
-                  <FiX className="text-red-500 cursor-pointer hover:text-red-700 transition" size={20} onClick={() => handleDeleteClick(article)} />
+                  <FiTrash className="text-red-500 cursor-pointer hover:text-red-700 transition" size={20} onClick={() => handleDeleteClick(article)} />
                 </div>
               </li>
             ))}

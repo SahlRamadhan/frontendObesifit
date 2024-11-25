@@ -1,57 +1,72 @@
-import React, { useState } from "react";
-import { FiSearch, FiX } from "react-icons/fi";
+import React, { useState, useEffect } from "react";
+import { FiSearch, FiTrash, } from "react-icons/fi";
 import Swal from "sweetalert2";
+import { getAllUsers, deleteUser } from "@/services/users.config";
 
 const FormKelolaDokter = () => {
   const [searchQuery, setSearchQuery] = useState("");
+  const [doctors, setDoctors] = useState([]);
 
-  const doctors = [
-    {
-      name: "Dr. Hermina Novida, Sp.PD, KEMD",
-      profilePic: "src/assets/images 2/dokter 1.png",
-    },
-    {
-      name: "Dr. Hendra Zufry, Sp.PD, KEMD",
-      profilePic: "src/assets/images 2/dokter 2.png",
-    },
-    {
-      name: "Dr. Hoo Yumilia, Sp.PD, KEMD",
-      profilePic: "src/assets/images 2/profil dokter.jpg",
-    },
-    {
-      name: "Dr. Johannes Purwoto, Sp.PD, KEMD",
-      profilePic: "src/assets/images 2/dokter 4.jpg",
-    },
-    {
-      name: "Dr. Indra Wijaya, Sp.PD, KEMD",
-      profilePic: "src/assets/images 2/dokter 5.png",
-    },
-    {
-      name: "Dr. I Gusti Ngurah Adhiartha, Sp.PD, KEMD",
-      profilePic: "src/assets/images 2/dokter 6.png",
-    },
-  ];
+  useEffect(() => {
+    const fetchDoctors = async () => {
+      try {
+        const response = await getAllUsers();
+        const dataDokter = response.data.filter((user) => user.role.id === 3);
+        setDoctors(dataDokter);
+      } catch (error) {
+        console.error("Error fetching doctors:", error);
+      }
+    };
+    fetchDoctors();
+  }, []);
+
+  const handleRejectDoctor = async (id, doctorsName) => {
+    try {
+      // SweetAlert untuk konfirmasi
+      const result = await Swal.fire({
+        title: `Yakin mau hapus akun dokter ini?`,
+        text: `Dokter ${doctorsName} akan dihapus dari daftar.`,
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonText: "Konfirmasi",
+        cancelButtonText: "Batalkan",
+        confirmButtonColor: "#28a745",
+        cancelButtonColor: "#dc3545",
+        reverseButtons: true,
+      });
+
+      // Jika pengguna mengkonfirmasi
+      if (result.isConfirmed) {
+        // Hapus dokter dari database
+        await deleteUser(id);
+
+        // Hapus dokter dari state
+        setDoctors((prevDoctors) => prevDoctors.filter((doc) => doc.id !== id));
+
+        // Tampilkan notifikasi berhasil
+        Swal.fire({
+          icon: "success",
+          title: "Berhasil!",
+          text: `Akun dokter ${doctorsName} telah dihapus.`,
+        });
+      }
+    } catch (error) {
+      console.error("Error deleting user:", error);
+
+      // Tampilkan notifikasi gagal
+      Swal.fire({
+        icon: "error",
+        title: "Gagal!",
+        text: "Terjadi kesalahan saat menghapus akun dokter. Silakan coba lagi.",
+      });
+    }
+  };
+
 
   const filteredDoctors = doctors.filter((doctor) => doctor.name.toLowerCase().includes(searchQuery.toLowerCase()));
 
   const handleSearchChange = (e) => {
     setSearchQuery(e.target.value);
-  };
-
-  const handleRejectDoctor = (doctorName) => {
-    Swal.fire({
-      title: `Yakin mau hapus akun dokter ini?`,
-      showCancelButton: true,
-      confirmButtonText: "Konfirmasi",
-      cancelButtonText: "Batalkan",
-      confirmButtonColor: "#28a745",
-      cancelButtonColor: "#dc3545",
-      reverseButtons: true,
-      html: `<p>Dokter ${doctorName} akan dihapus dari daftar.</p>`,
-      customClass: {
-        popup: "flex flex-col items-center",
-      },
-    });
   };
 
   return (
@@ -60,11 +75,11 @@ const FormKelolaDokter = () => {
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-8">
         <div className="bg-white p-6 rounded-lg shadow-md">
           <h2 className="text-lg font-semibold text-gray-700 mb-2">Total Dokter</h2>
-          <p className="text-4xl font-bold text-gray-800">896</p>
+          <p className="text-4xl font-bold text-gray-800">{doctors.length}</p>
         </div>
         <div className="bg-white p-6 rounded-lg shadow-md">
           <h2 className="text-lg font-semibold text-gray-700 mb-2">Jumlah Dokter Aktif</h2>
-          <p className="text-4xl font-bold text-gray-800">48</p>
+          <p className="text-4xl font-bold text-gray-800">{doctors.length}</p>
         </div>
       </div>
 
@@ -85,10 +100,10 @@ const FormKelolaDokter = () => {
               {filteredDoctors.map((doctor, index) => (
                 <li key={index} className="flex flex-col sm:flex-row justify-between items-center bg-gray-50 p-3 sm:p-4 rounded-lg shadow-sm hover:shadow-md transition">
                   <div className="flex items-center space-x-3 sm:space-x-4">
-                    <img src={doctor.profilePic} alt="profil dokter" className="w-10 h-10 sm:w-12 sm:h-12 rounded-full object-cover" />
+                    <img src={doctor.images} alt="profil dokter" className="w-10 h-10 sm:w-12 sm:h-12 rounded-full object-cover" />
                     <p className="text-gray-700 text-sm sm:text-base font-medium">{doctor.name}</p>
                   </div>
-                  <FiX className="text-red-500 cursor-pointer hover:text-red-700 transition" size={20} onClick={() => handleRejectDoctor(doctor.name)} />
+                  <FiTrash className="text-red-500 cursor-pointer hover:text-red-700 transition" size={24} onClick={() => handleRejectDoctor(doctor.id)} />
                 </li>
               ))}
             </ul>

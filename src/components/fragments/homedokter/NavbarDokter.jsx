@@ -5,7 +5,7 @@ import { useAuth } from "@/context/AuthContext";
 function Navbar({ showKeluar = true }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false); // State untuk toggle menu
   const [isMobile, setIsMobile] = useState(false); // State untuk mendeteksi mobile view
-  const { logout } = useAuth();
+  const { logout, userData } = useAuth();
   const navigate = useNavigate();
 
   // Deteksi ukuran layar
@@ -67,7 +67,7 @@ function Navbar({ showKeluar = true }) {
           </li>
           <li>
             <Link to="/editprofil-dokter">
-              <img src="src/assets/images 2/profil dokter.jpg" alt="Profile" className="w-8 h-8 md:w-10 md:h-10 rounded-full cursor-pointer" />
+              <img src={userData.images} alt="Profile" className="w-8 h-8 md:w-10 md:h-10 rounded-full cursor-pointer" />
             </Link>
           </li>
           {showKeluar && (
@@ -92,7 +92,7 @@ function Navbar({ showKeluar = true }) {
         <div className="fixed inset-0 bg-[#D5EFE9] bg-opacity-90 flex flex-col items-center justify-center z-50 text-gray-700">
           <ul className="space-y-6 text-xl font-semibold text-center">
             <li>
-              <Link to="/homeuser" className="hover:text-gray-300" onClick={() => setIsMenuOpen(false)}>
+              <Link to="/homedokter" className="hover:text-gray-300" onClick={() => setIsMenuOpen(false)}>
                 Home
               </Link>
             </li>
@@ -117,7 +117,7 @@ function Navbar({ showKeluar = true }) {
               </Link>
             </li>
             <li>
-              <Link to="/editprofil-dokter" className="hover:text-gray-300" onClick={() => setIsMenuOpen(false)}>
+              <Link to="/editprofil-" className="hover:text-gray-300" onClick={() => setIsMenuOpen(false)}>
                 Profil
               </Link>
             </li>

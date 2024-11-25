@@ -34,13 +34,17 @@ export const AuthProvider = ({ children }) => {
 
     validateToken();
   }, []);
+  const updateUserData = (updatedData) => {
+    setUserData((prevData) => ({
+      ...prevData,
+      ...updatedData,
+    }));
+  };
 
   const login = async (credentials, expectedRole) => {
     try {
       const data = await loginUser(credentials.email, credentials.password, expectedRole); // Panggil API login
       if (data?.accessToken && data?.user) {
-       
-
         setIsAuthenticated(true);
         setUserRole(data.user.role_id);
         setUserData(data.user);
@@ -55,7 +59,6 @@ export const AuthProvider = ({ children }) => {
       throw error; // Untuk ditangani oleh komponen yang memanggilnya
     }
   };
-
 
   // Fungsi untuk logout
   const logout = async () => {
@@ -78,6 +81,7 @@ export const AuthProvider = ({ children }) => {
         isLoading, // Status validasi awal
         login, // Tambahkan fungsi login
         logout,
+        updateUserData,
       }}
     >
       {children}

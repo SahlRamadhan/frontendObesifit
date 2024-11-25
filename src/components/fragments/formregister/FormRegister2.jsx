@@ -31,14 +31,11 @@ export default function Register2Page() {
      return;
    }
 
-   console.log("Email yang dikirim:", email);
-   console.log("OTP yang dikirim:", code);
 
    setLoading(true);
 
    try {
      const response = await verifyOtp(email, code);
-     console.log("Response dari backend:", response);
 
      Swal.fire("Berhasil", response.message, "success").then(() => {
        navigate("/login");

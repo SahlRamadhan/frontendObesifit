@@ -1,46 +1,57 @@
-import FormEditProfilDokter from "@/components/fragments/formedit/FormEditProfilDokter";
-import DokterImage from "@/assets/images 2/profil dokter.jpg";
 import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import Navbar from "@/components/fragments/homedokter/NavbarDokter";
+import FormEditProfil from "@/components/fragments/formedit/FormEditProfil";
+import { useAuth } from "@/context/AuthContext";
 
 export default function EditProfilDokterPage() {
   const navigate = useNavigate();
 
-  const handleLogout = (e) => {
-    e.preventDefault();
+  const { logout } = useAuth();
 
-    Swal.fire({
-      title: "Yakin mau keluar dari akun ini?",
-      showCancelButton: true,
-      confirmButtonText: "Konfirmasi",
-      cancelButtonText: "Batalkan",
-      confirmButtonColor: "#28a745",
-      cancelButtonColor: "#dc3545",
-      reverseButtons: true,
-      html: `
+  const handleLogout = (e) => {
+    try {
+      e.preventDefault();
+      Swal.fire({
+        title: "Yakin mau keluar dari akun ini?",
+        showCancelButton: true,
+        confirmButtonText: "Konfirmasi",
+        cancelButtonText: "Batalkan",
+        confirmButtonColor: "#28a745",
+        cancelButtonColor: "#dc3545",
+        reverseButtons: true,
+        html: `
         <div class="flex flex-col items-center space-y-4">
           <img src="src/assets/images 2/pop up 1.png" alt="Custom Image" class="mx-auto" style="width: 100px; height: 100px;">
         </div>
       `,
-      customClass: {
-        popup: "flex flex-col items-center",
-        title: "text-xl font-semibold text-center",
-        image: "my-4",
-        confirmButton: "bg-green-500 text-white py-2 px-6 rounded-lg mt-4",
-        cancelButton: "bg-red-500 text-white py-2 px-6 rounded-lg mt-4",
-      },
-      preConfirm: () => {
-        navigate("/homedokter");
-        return true;
-      },
-    });
+        customClass: {
+          popup: "flex flex-col items-center",
+          title: "text-xl font-semibold text-center",
+          image: "my-4",
+          confirmButton: "bg-green-500 text-white py-2 px-6 rounded-lg mt-4",
+          cancelButton: "bg-red-500 text-white py-2 px-6 rounded-lg mt-4",
+        },
+      }).then((result) => {
+        if (result.isConfirmed) {
+          logout();
+          navigate("/login-dokter");
+        }
+      });
+    } catch (error) {
+      console.error("Gagal memperbarui profil:", error);
+      Swal.fire({
+        icon: "error",
+        title: "Gagal!",
+        text: "Terjadi kesalahan saat memperbarui profil.",
+      });
+    }
   };
 
   return (
     <section className="flex flex-col min-h-screen bg-white">
       {/* Navbar */}
-      <Navbar showKeluar={false} />
+      <Navbar />
 
       {/* Konten utama */}
       <div className="flex flex-grow justify-center items-center">
@@ -52,7 +63,7 @@ export default function EditProfilDokterPage() {
 
           {/* Form untuk pengeditan profil */}
           <div className="mt-8">
-            <FormEditProfilDokter />
+            <FormEditProfil />
           </div>
         </div>
       </div>

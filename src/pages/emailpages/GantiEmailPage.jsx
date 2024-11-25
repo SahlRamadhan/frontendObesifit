@@ -1,12 +1,14 @@
 import FormGantiEmail from "@/components/fragments/formemail/FormGantiEmail";
 import Image from "@/assets/images 2/Profil.jpg";
 import Navbar from "@/components/fragments/homeuser/NavbarUser";
+import { useNavigate } from "react-router-dom";
 
 export default function GantiEmailPage() {
+  const navigate = useNavigate();
   return (
     <section className="flex flex-col min-h-screen bg-white">
       {/* Navbar */}
-      <Navbar showKeluar={false} />
+      <Navbar />
 
       {/* Konten utama */}
       <div className="flex flex-grow flex-col items-center justify-center">
@@ -21,7 +23,7 @@ export default function GantiEmailPage() {
 
       {/* Footer */}
       <footer className="flex justify-start p-10 bg-white shadow-md">
-        <button className="bg-[#C90000] text-white py-1 px-7 rounded-[10px]">Kembali</button>
+        <button className="bg-[#C90000] text-white py-1 px-7 rounded-[10px]" onClick={() => navigate("/edit-profil")}>Kembali</button>
       </footer>
     </section>
   );

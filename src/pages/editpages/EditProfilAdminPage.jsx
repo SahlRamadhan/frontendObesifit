@@ -1,45 +1,56 @@
 import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import Navbar from "@/components/fragments/homeadmin/NavbarAdmin";
-import FormEditProfilAdmin from "@/components/fragments/formedit/FormEditProfilAdmin";
+import FormEditProfil from "@/components/fragments/formedit/FormEditProfil";
+import { useAuth } from "@/context/AuthContext";
 
 export default function EditProfilDokterPage() {
   const navigate = useNavigate();
+  const { logout } = useAuth();
 
   const handleLogout = (e) => {
-    e.preventDefault();
-
-    Swal.fire({
-      title: "Yakin mau keluar dari akun ini?",
-      showCancelButton: true,
-      confirmButtonText: "Konfirmasi",
-      cancelButtonText: "Batalkan",
-      confirmButtonColor: "#28a745",
-      cancelButtonColor: "#dc3545",
-      reverseButtons: true,
-      html: `
+    try {
+      e.preventDefault();
+      Swal.fire({
+        title: "Yakin mau keluar dari akun ini?",
+        showCancelButton: true,
+        confirmButtonText: "Konfirmasi",
+        cancelButtonText: "Batalkan",
+        confirmButtonColor: "#28a745",
+        cancelButtonColor: "#dc3545",
+        reverseButtons: true,
+        html: `
         <div class="flex flex-col items-center space-y-4">
           <img src="src/assets/images 2/pop up 1.png" alt="Custom Image" class="mx-auto" style="width: 100px; height: 100px;">
         </div>
       `,
-      customClass: {
-        popup: "flex flex-col items-center",
-        title: "text-xl font-semibold text-center",
-        image: "my-4",
-        confirmButton: "bg-green-500 text-white py-2 px-6 rounded-lg mt-4",
-        cancelButton: "bg-red-500 text-white py-2 px-6 rounded-lg mt-4",
-      },
-      preConfirm: () => {
-        navigate("/homeadmin");
-        return true;
-      },
-    });
+        customClass: {
+          popup: "flex flex-col items-center",
+          title: "text-xl font-semibold text-center",
+          image: "my-4",
+          confirmButton: "bg-green-500 text-white py-2 px-6 rounded-lg mt-4",
+          cancelButton: "bg-red-500 text-white py-2 px-6 rounded-lg mt-4",
+        },
+      }).then((result) => {
+        if (result.isConfirmed) {
+
+          navigate("/homeadmin");
+        }
+      });
+    } catch (error) {
+      console.error("Gagal memperbarui profil:", error);
+      Swal.fire({
+        icon: "error",
+        title: "Gagal!",
+        text: "Terjadi kesalahan saat memperbarui profil.",
+      });
+    }
   };
 
   return (
     <section className="flex flex-col min-h-screen bg-white">
       {/* Navbar */}
-      <Navbar showKeluar={false} />
+      <Navbar/>
 
       {/* Konten utama */}
       <div className="flex flex-grow justify-center items-center">
@@ -51,7 +62,7 @@ export default function EditProfilDokterPage() {
 
           {/* Form untuk pengeditan profil */}
           <div className="mt-8">
-            <FormEditProfilAdmin />
+            <FormEditProfil />
           </div>
         </div>
       </div>
@@ -59,7 +70,7 @@ export default function EditProfilDokterPage() {
       {/* Footer */}
       <footer className="flex justify-start p-12 bg-white shadow-md">
         <button className="bg-[#C90000] text-white py-1 px-8 rounded-[10px]" onClick={handleLogout}>
-          Keluar
+          Kembali
         </button>
       </footer>
     </section>
