@@ -29,7 +29,7 @@ function RelatedArticles() {
     if (userRole === 3) return `/isiartikeldokter/${id}`; // Role Dokter
     return `/artikel/${id}`; // Default fallback
   };
-  const getShortContent = (content, maxLength = 100) => {
+  const getShortContent = (content, maxLength = 15) => {
     if (!content) return "Penjelasan tidak tersedia.";
     return content.length > maxLength ? `${content.substring(0, maxLength)}...` : content;
   };

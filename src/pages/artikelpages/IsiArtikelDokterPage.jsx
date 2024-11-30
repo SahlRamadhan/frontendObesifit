@@ -4,7 +4,7 @@ import Imagesintroisiartikel from "@/components/fragments/isiartikeluser/Imagesi
 import FooterUser from "@/components/fragments/homeuser/FooterUser";
 import WelcomeIsiArtikelDokter from "@/components/fragments/isiartikeldokter/WelcomeIsiArtikelDokter";
 import RelatedArticles from "@/components/fragments/isiartikeluser/RelatedArticles";
-import IsiArtikelDokter from "@/components/fragments/isiartikeldokter/IsiartikelDokter";
+import IsiArtikelUser from "@/components/fragments/isiartikeluser/IsiArtikelUser";
 
 export default function IsiArtikelDokterPage() {
   return (
@@ -12,7 +12,7 @@ export default function IsiArtikelDokterPage() {
       <NavbarDokter />
       <Imagesintroisiartikel />
       <WelcomeIsiArtikelDokter />
-      <IsiArtikelDokter />
+      <IsiArtikelUser />
       <RelatedArticles />
       <FooterUser />
     </>

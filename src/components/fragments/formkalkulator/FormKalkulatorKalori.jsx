@@ -4,20 +4,22 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import Swal from "sweetalert2";
 import { useNavigate } from "react-router-dom";
+import { createKalkulatorKalori } from "@/services/kalkulatorKalori.config"; // API service untuk kalkulator kalori
+import { useAuth } from "@/context/AuthContext"; // Ambil userData dari context
 
 export default function FormKalkulatorKalori() {
-  const [gender, setGender] = useState("");
-  const [age, setAge] = useState("");
-  const [height, setHeight] = useState("");
-  const [weight, setWeight] = useState("");
-  const [activityLevel, setActivityLevel] = useState("");
+  const { userData, isAuthenticated, userRole } = useAuth(); // Ambil userData dan cek status login
+  const [gender, setGender] = useState(""); // Jenis kelamin
+  const [age, setAge] = useState(""); // Usia
+  const [height, setHeight] = useState(""); // Tinggi badan
+  const [weight, setWeight] = useState(""); // Berat badan
 
   const navigate = useNavigate();
 
-  const handleCalculate = (e) => {
+  const handleCalculate = async (e) => {
     e.preventDefault();
 
-    if (!gender || !age || !height || !weight || !activityLevel) {
+    if (!gender || !age || !height || !weight ) {
       Swal.fire({
         icon: "warning",
         title: "Form Belum Lengkap!",
@@ -26,42 +28,43 @@ export default function FormKalkulatorKalori() {
       return;
     }
 
-    let bmr;
-    if (gender === "male") {
-      bmr = 88.362 + 13.397 * weight + 4.799 * height - 5.677 * age;
-    } else {
-      bmr = 447.593 + 9.247 * weight + 3.098 * height - 4.33 * age;
+    const data = {
+      id_jenis_kelamin: gender === "male" ? 1 : 2, // 1 untuk Laki-Laki, 2 untuk Perempuan
+      usia: age,
+      tinggi_badan: height,
+      berat_badan: weight,
+      id_user: userData?.id, // Ambil ID user dari context
+    };
+
+    try {
+      // Kirim data ke API backend untuk kalkulasi kalori dan simpan data
+      const response = await createKalkulatorKalori(data); // Kirim data ke API
+      if (response) {
+        Swal.fire({
+          icon: "success",
+          title: "Hasil Kalori Harian Kamu!",
+          text: `Total Kalori Harian: ${response.data.bmr} kalori`,
+        });
+        if (userRole === 2) {
+          navigate("/hasil-kalori", { state: { bmr: response.data.bmr } }); // Navigasi ke halaman hasil kalori
+        }
+        if (userRole === 3) {
+          navigate("/hasilkalori-dokter", { state: { bmr: response.data.bmr } }); // Navigasi ke halaman kalkulator kalori
+        }
+      }
+    } catch (error) {
+      Swal.fire({
+        icon: "error",
+        title: "Terjadi kesalahan",
+        text: "Gagal menghitung kalori, coba lagi nanti.",
+      });
     }
-
-    let tdee;
-    switch (activityLevel) {
-      case "sedentary":
-        tdee = bmr * 1.2;
-        break;
-      case "light":
-        tdee = bmr * 1.375;
-        break;
-      case "moderate":
-        tdee = bmr * 1.55;
-        break;
-      case "active":
-        tdee = bmr * 1.725;
-        break;
-      case "very-active":
-        tdee = bmr * 1.9;
-        break;
-      default:
-        tdee = bmr;
-    }
-
-    Swal.fire({
-      icon: "success",
-      title: "Hasil Kalori Harian Kamu!",
-      text: `Total Kalori Harian: ${tdee.toFixed(2)} kalori`,
-    });
-
-    navigate("/hasil-kalori");
   };
+
+  if (!isAuthenticated) {
+    // Jika user belum login, arahkan ke halaman login
+    navigate("/login");
+  }
 
   return (
     <form className="flex flex-col items-center space-y-14 px-4">
@@ -100,6 +103,7 @@ export default function FormKalkulatorKalori() {
           </Label>
           <Input id="weight" type="number" value={weight} onChange={(e) => setWeight(e.target.value)} placeholder="Masukkan berat badan kamu" className="w-full mt-2 border-gray-300" />
         </div>
+        
       </div>
 
       {/* Button */}

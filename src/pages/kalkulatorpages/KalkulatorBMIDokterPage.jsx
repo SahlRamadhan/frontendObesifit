@@ -1,7 +1,7 @@
 import BackgroundImage from "@/assets/images 2/banner bmi.png";
 import Navbar from "@/components/fragments/homedokter/NavbarDokter";
 import FooterUser from "@/components/fragments/homeuser/FooterUser";
-import FormKalkulatorBMIDokter from "@/components/fragments/formkalkulator/FormKalkulatorBMIDokter";
+import FormKalkulatorBMI from "@/components/fragments/formkalkulator/FormKalkulatorBMI";
 
 export default function KalkulatorBMIPage() {
   return (
@@ -22,7 +22,7 @@ export default function KalkulatorBMIPage() {
 
         {/* Form untuk Kalkulator */}
         <div className="mt-10 w-full max-w-2xl">
-          <FormKalkulatorBMIDokter />
+          <FormKalkulatorBMI />
         </div>
       </div>
 

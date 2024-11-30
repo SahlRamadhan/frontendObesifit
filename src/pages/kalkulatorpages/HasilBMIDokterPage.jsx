@@ -1,4 +1,4 @@
-import FormHasilBMIDokter from "@/components/fragments/formhasilkalkulator/FormHasilBMIDokter";
+import FormHasilBMI from "@/components/fragments/formhasilkalkulator/FormHasilBMI";
 import Navbar from "@/components/fragments/homedokter/NavbarDokter";
 import FooterUser from "@/components/fragments/homeuser/FooterUser";
 
@@ -10,7 +10,7 @@ export default function HasilBMIPage() {
 
       {/* Konten Utama */}
       <main className="flex flex-col items-center flex-grow mt-20">
-        <FormHasilBMIDokter />
+        <FormHasilBMI />
       </main>
 
       <FooterUser />

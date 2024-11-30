@@ -2,9 +2,24 @@ import React from "react";
 import kalkulatorImage1 from "../../../assets/images/Fitur (4).png"; // Ganti dengan path gambar yang benar
 import kalkulatorImage2 from "../../../assets/images/Fitur (5).png"; // Ganti dengan path gambar yang benar
 import { useNavigate } from "react-router-dom";
+import { useAuth } from "@/context/AuthContext";
 
 function KalkulatorUser() {
   const navigate = useNavigate();
+  const { userRole } = useAuth();
+  
+
+  const getKalkulatorUrl = () => {
+    if (userRole === 2) return "/kalkulator-bmi"; // Role User
+    if (userRole === 3) return "/kalkulatorbmi-dokter"; // Role Dokter
+    return "/kalkulator"; 
+  }
+
+  const getKalkulatorUrl2 = () => {
+    if (userRole === 2) return "/kalkulator-kalori"; // Role User
+    if (userRole === 3) return "/kalkulatorkalori-dokter"; // Role Dokter
+    return "/kalkulator-kalori"; 
+  }
 
   return (
     <section className="max-w-screen-2xl mx-auto p-5">
@@ -14,7 +29,7 @@ function KalkulatorUser() {
           <h2 className="text-xl md:text-2xl font-semibold text-black mb-2">Hitung BMI Kamu di Sini!</h2>
           <p className="text-sm md:text-lg text-gray-600 mb-4">Cek kesehatan berat badanmu dengan cepat. Yuk, hitung sekarang!</p>
           <img src={kalkulatorImage1} alt="Kalkulator BMI" className="w-full max-w-xs h-auto mb-4 rounded-lg" />
-          <button className="bg-green-500 text-white px-4 py-2 rounded-lg hover:bg-black transition-colors" onClick={() => navigate("/kalkulator-bmi")}>
+          <button className="bg-green-500 text-white px-4 py-2 rounded-lg hover:bg-black transition-colors" onClick={() => navigate(getKalkulatorUrl())}>
             Ayo Hitung!
           </button>
         </div>
@@ -24,7 +39,7 @@ function KalkulatorUser() {
           <h2 className="text-xl md:text-2xl font-semibold text-black mb-2">Hitung Kebutuhan Kalori Harianmu!</h2>
           <p className="text-sm md:text-lg text-gray-600 mb-4">Cek berapa kalori yang kamu butuhkan setiap hari. Yuk, coba hitung!</p>
           <img src={kalkulatorImage2} alt="Kalkulator Kalori" className="w-full max-w-xs h-auto mb-4 rounded-lg" />
-          <button className="bg-green-500 text-white px-4 py-2 rounded-lg hover:bg-black transition-colors" onClick={() => navigate("/kalkulator-kalori")}>
+          <button className="bg-green-500 text-white px-4 py-2 rounded-lg hover:bg-black transition-colors" onClick={() => navigate(getKalkulatorUrl2())}>
             Ayo Hitung!
           </button>
         </div>

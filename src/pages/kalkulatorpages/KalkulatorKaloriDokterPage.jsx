@@ -1,7 +1,7 @@
-import FormKalkulatorKaloriDokter from "@/components/fragments/formkalkulator/FormKalkulatorKaloriDokter";
 import BackgroundImage from "@/assets/images 2/banner kalori.png";
 import Navbar from "@/components/fragments/homedokter/NavbarDokter";
 import FooterUser from "@/components/fragments/homeuser/FooterUser";
+import FormKalkulatorKalori from "@/components/fragments/formkalkulator/FormKalkulatorKalori";
 
 export default function KalkulatorKaloriPage() {
   return (
@@ -20,7 +20,7 @@ export default function KalkulatorKaloriPage() {
 
         {/* Form untuk Kalkulator Kalori */}
         <div className="mt-10 w-full max-w-2xl">
-          <FormKalkulatorKaloriDokter />
+          <FormKalkulatorKalori />
         </div>
       </div>
 

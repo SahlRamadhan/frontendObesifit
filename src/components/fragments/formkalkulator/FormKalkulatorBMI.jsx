@@ -4,18 +4,22 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import Swal from "sweetalert2";
 import { useNavigate } from "react-router-dom";
+import { createKalkulatorBMI } from "@/services/kalkulatorBMI.config"; // Import API service
+import { useAuth } from "@/context/AuthContext"; // Import useAuth untuk mendapatkan userData
 
 export default function FormKalkulatorBMI() {
-  const [gender, setGender] = useState("");
-  const [age, setAge] = useState("");
-  const [height, setHeight] = useState("");
-  const [weight, setWeight] = useState("");
+  const { userData, isAuthenticated, userRole } = useAuth(); // Ambil userData dari context
+  const [gender, setGender] = useState(""); // Menyimpan nilai jenis kelamin
+  const [age, setAge] = useState(""); // Menyimpan usia
+  const [height, setHeight] = useState(""); // Menyimpan tinggi badan
+  const [weight, setWeight] = useState(""); // Menyimpan berat badan
 
   const navigate = useNavigate();
 
-  const handleCalculate = (e) => {
+  const handleCalculate = async (e) => {
     e.preventDefault();
 
+    // Validasi input data
     if (!gender || !age || !height || !weight) {
       Swal.fire({
         icon: "warning",
@@ -25,15 +29,45 @@ export default function FormKalkulatorBMI() {
       return;
     }
 
+    // Menghitung BMI
     const bmi = (weight / (height * height)) * 10000;
-    Swal.fire({
-      icon: "success",
-      title: "Hasil BMI Kamu!",
-      text: `Nilai BMI: ${bmi.toFixed(2)}`,
-    });
 
-    navigate("/hasil-bmi");
+    // Menyiapkan data untuk dikirim ke API
+    const data = {
+      id_jenis_kelamin: gender === "male" ? 1 : 2, // 1 untuk Laki-Laki, 2 untuk Perempuan
+      usia: age,
+      tinggi_badan: height,
+      berat_badan: weight,
+      id_user: userData?.id, // Pastikan `id_user` dikirim dari context
+    };
+
+    try {
+      // Ambil token dari AuthContext
+      
+      // Kirimkan data ke API dengan token di header Authorization
+      const response = await createKalkulatorBMI(data); // Kirim data dan token ke API
+      if (response) {
+        Swal.fire({
+          icon: "success",
+          title: "Hasil BMI Kamu!",
+          text: `Nilai BMI: ${bmi.toFixed(2)}. Kategori: ${response.data.kategori}`,
+        });
+        if (userRole === 2) navigate("/hasilbmi", { state: { bmi: bmi.toFixed(2), kategori: response.data.kategori } }); // Role User
+        if (userRole === 3) navigate("/hasilbmi-dokter", { state: { bmi: bmi.toFixed(2), kategori: response.data.kategori } }); // Role Dokter
+      }
+    } catch (error) {
+      Swal.fire({
+        icon: "error",
+        title: "Terjadi kesalahan",
+        text: "Gagal menghitung BMI, coba lagi nanti.",
+      });
+    }
   };
+
+  if (!isAuthenticated) {
+    // Jika user belum login, arahkan ke halaman login
+    navigate("/login");
+  }
 
   return (
     <form className="flex flex-col items-center space-y-14 px-4">
