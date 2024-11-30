@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { getArticleById } from "../../../services/artikel.config";
 
-function IsiArtikelUser() {
+function IsiArtikelDokter() {
   const { id } = useParams(); // Ambil ID dari URL
   const [article, setArticle] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
@@ -44,13 +44,9 @@ function IsiArtikelUser() {
       {/* Konten Artikel */}
       <div className="text-gray-800 text-lg leading-relaxed">
         <p className="mb-6">{article.content}</p>
-
-        
       </div>
-
-      
     </div>
   );
 }
 
-export default IsiArtikelUser;
+export default IsiArtikelDokter;

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { getVideoById } from "@/services/video.config"; // Pastikan Anda sudah memiliki service API untuk mengambil data video
 
-export const IsiVideoUser = () => {
+export const IsiVideoDokter = () => {
   const { id } = useParams(); // Ambil ID dari parameter URL
   const [mainVideo, setMainVideo] = useState(null);
 
@@ -49,4 +49,4 @@ export const IsiVideoUser = () => {
   );
 };
 
-export default IsiVideoUser;
+export default IsiVideoDokter;

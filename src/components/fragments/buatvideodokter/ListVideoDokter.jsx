@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
-import { FiSearch, FiEdit, FiTrash } from "react-icons/fi";
+import { FiSearch, FiEdit, FiTrash, FiArrowLeft } from "react-icons/fi";
 import { getAllVideo, deleteVideo, updateVideo } from "../../../services/video.config";
 import Swal from "sweetalert2";
 
-const VideoList = ({ onVideosUpdate }) => {
+const ListVideoDokter = ({ onVideosUpdate }) => {
   const [searchTerm, setSearchTerm] = useState("");
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedVideo, setSelectedVideo] = useState(null);
@@ -159,8 +159,13 @@ const VideoList = ({ onVideosUpdate }) => {
   };
 
   return (
-    <div className="bg-white p-4 sm:p-6 rounded-lg shadow-md">
+    <div className="bg-white p-4 sm:p-6 rounded-lg shadow-md max-w-screen-lg mx-auto">
       <h2 className="text-lg sm:text-xl font-semibold text-gray-900 mb-4">Temukan Video</h2>
+
+      <button className="mb-6 flex items-center text-gray-600 hover:text-gray-900" onClick={() => window.history.back()}>
+        <FiArrowLeft className="mr-2" />
+        Kembali
+      </button>
 
       {/* Search Bar */}
       <div className="mb-6 flex items-center border rounded-lg bg-gray-50 p-2 shadow-sm">
@@ -274,4 +279,4 @@ const VideoList = ({ onVideosUpdate }) => {
   );
 };
 
-export default VideoList;
+export default ListVideoDokter;

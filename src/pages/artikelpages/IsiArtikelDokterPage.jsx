@@ -1,18 +1,20 @@
 import React from "react";
-import NavbarUser from "@/components/fragments/homeuser/NavbarUser"; 
-import IsiArtikelUser from "@/components/fragments/isiartikeluser/IsiArtikelUser";
+import NavbarDokter from "@/components/fragments/homedokter/NavbarDokter";
 import Imagesintroisiartikel from "@/components/fragments/isiartikeluser/Imagesintroisiartikel";
 import FooterUser from "@/components/fragments/homeuser/FooterUser";
 import WelcomeIsiArtikelDokter from "@/components/fragments/isiartikeldokter/WelcomeIsiArtikelDokter";
+import RelatedArticles from "@/components/fragments/isiartikeluser/RelatedArticles";
+import IsiArtikelDokter from "@/components/fragments/isiartikeldokter/IsiartikelDokter";
 
 export default function IsiArtikelDokterPage() {
   return (
     <>
-      <NavbarUser />
+      <NavbarDokter />
       <Imagesintroisiartikel />
       <WelcomeIsiArtikelDokter />
-      <IsiArtikelUser />
+      <IsiArtikelDokter />
+      <RelatedArticles />
       <FooterUser />
-      </>
+    </>
   );
 }

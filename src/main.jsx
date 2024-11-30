@@ -50,6 +50,8 @@ import KelolaVideoPage from "./pages/kelolapeges/KelolaVideoPages";
 import { AuthProvider } from "./context/AuthContext";
 import { ProtectedRoute } from "./context/ProviderAuth";
 import NotFound from "./pages/404pages/NotFoundPages";
+import ListArtikelDokterPage from "./pages/artikelpages/ListArtikelDokterPages";
+import ListVideoDokterPage from "./pages/videopages/ListVideoDokter.page";
 
 const router = createBrowserRouter([
   {
@@ -286,7 +288,7 @@ const router = createBrowserRouter([
     ),
   },
   {
-    path: "/isiartikeluser",
+    path: "/isiartikeluser/:id",
     element: (
       <ProtectedRoute>
         <IsiArtikelUserPage />
@@ -294,7 +296,7 @@ const router = createBrowserRouter([
     ),
   },
   {
-    path: "/isivideouser",
+    path: "/isivideouser/:id",
     element: (
       <ProtectedRoute>
         <IsiVideoUserPage />
@@ -318,7 +320,7 @@ const router = createBrowserRouter([
     ),
   },
   {
-    path: "/isiartikeldokter",
+    path: "/isiartikeldokter/:id",
     element: (
       <ProtectedRoute>
         <IsiArtikelDokterPage />
@@ -326,7 +328,7 @@ const router = createBrowserRouter([
     ),
   },
   {
-    path: "/isivideodokter",
+    path: "/isivideodokter/:id",
     element: (
       <ProtectedRoute>
         <IsiVideoDokterPage />
@@ -336,8 +338,16 @@ const router = createBrowserRouter([
   {
     path: "/buatartikeldokter",
     element: (
-      <ProtectedRoute>
+      <ProtectedRoute role={3}>
         <BuatArtikelDokterPage />
+      </ProtectedRoute>
+    ),
+  },
+  {
+    path: "/listartikeldokter",
+    element: (
+      <ProtectedRoute role={3}>
+        <ListArtikelDokterPage />
       </ProtectedRoute>
     ),
   },
@@ -346,6 +356,14 @@ const router = createBrowserRouter([
     element: (
       <ProtectedRoute>
         <BuatVideoDokterPage />
+      </ProtectedRoute>
+    ),
+  },
+  {
+    path: "/listvideodokter",
+    element: (
+      <ProtectedRoute>
+        <ListVideoDokterPage />
       </ProtectedRoute>
     ),
   },

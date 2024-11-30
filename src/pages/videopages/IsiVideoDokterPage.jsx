@@ -1,13 +1,17 @@
 import React from "react";
-import NavbarUser from "@/components/fragments/homeuser/NavbarUser"; 
-import IsiVideoUser from "@/components/fragments/isivideouser/IsiVideoUser";
 import FooterUser from "@/components/fragments/homeuser/FooterUser";
+import Navbar from "@/components/fragments/homedokter/NavbarDokter";
+import Imagesintroisiartikel from "@/components/fragments/isiartikeluser/Imagesintroisiartikel";
+import IsiVideoDokter from "@/components/fragments/isivideodokter/IsiVideoDokter";
+import RelatedVideo from "@/components/fragments/isivideodokter/RelatedVideo";
 
 export default function IsiVideoDokterPage() {
   return (
     <>
-      <NavbarUser />
-      <IsiVideoUser />
+      <Navbar />
+      <Imagesintroisiartikel />
+      <IsiVideoDokter />
+      <RelatedVideo />
       <FooterUser />
     
       </>

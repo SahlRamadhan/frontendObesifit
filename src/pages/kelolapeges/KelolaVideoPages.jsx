@@ -1,10 +1,28 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import NavbarAdmin from "@/components/fragments/homeadmin/NavbarAdmin";
-import SidebarHomeAdmin from "@/components/fragments/homeadmin/SidebarHomeAdmin";
-import VideoStats from "@/components/fragments/kelolavideo/VideoStats";
 import VideoList from "@/components/fragments/kelolavideo/VideoList";
+import VideoStats from "@/components/fragments/kelolavideo/VideoStats";
+import SidebarHomeAdmin from "@/components/fragments/homeadmin/SidebarHomeAdmin";
+import { getAllVideo } from "@/services/video.config";
 
 export default function KelolaVideoPage() {
+  const [totalVideos, setTotalVideos] = useState(0);
+
+  // Fetch total video
+  const fetchTotalVideos = async () => {
+    try {
+      const video = await getAllVideo();
+      setTotalVideos(video.length);
+    } catch (error) {
+      console.error("Error fetching total videos:", error);
+    }
+  };
+
+  // Fetch data awal saat komponen dimuat
+  useEffect(() => {
+    fetchTotalVideos();
+  }, []);
+
   return (
     <div className="flex bg-gray-100 min-h-screen">
       {/* Sidebar */}
@@ -20,11 +38,11 @@ export default function KelolaVideoPage() {
 
           {/* Statistik Video */}
           <div className="mb-8">
-            <VideoStats />
+            <VideoStats totalVideos={totalVideos} />
           </div>
 
           {/* Daftar Video */}
-          <VideoList />
+          <VideoList onVideosUpdate={fetchTotalVideos} />
         </div>
       </div>
     </div>

@@ -1,28 +1,47 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import video1 from "../../../assets/images/Video Thumbnail (6).jpg";
-import video2 from "../../../assets/images/Video Thumbnail (7).jpg";
-import video3 from "../../../assets/images/Video Thumbnail (8).jpg";
-import video4 from "../../../assets/images/Video Thumbnail (9).jpg";
-import video5 from "../../../assets/images/Video Thumbnail (1).png";
-import video6 from "../../../assets/images/Video Thumbnail (4).jpg";
+import { getAllVideo } from "@/services/video.config";
+import { useAuth } from "@/context/AuthContext";
 
 
 function VideoSection() {
-  const videos = [
-    { image: video1, title: "Obesitas: Sekadar Masalah Kecil atau Ancaman Serius bagi Kesehatanmu?", link: "/isivideouser" },
-    { image: video2, title: "Penyebab sesungguhnya & Bahaya dibalik Obesitas!", link: "/video/2" },
-    { image: video3, title: "Mitos & Fakta Makanan yang Bikin Obesitas", link: "/video/3" },
-    { image: video4, title: "Lima Penyakit yang bakal kamu temui ketika kamu Obesitas!", link: "/video/4" },
-    { image: video5, title: "Tips Ampuh Atasi Obesitas dan Mulai Hidup Sehat!", link: "/video/5" },
-    { image: video6, title: "Cara Menurunkan Berat Badan demi Cegah Obesitas", link: "/video/6" },
-  ];
+  const [videos, setVideos] = useState([]);
+  const { userRole } = useAuth(); // Dapatkan role pengguna dari context
+
+  useEffect(() => {
+    const fetchVideos = async () => {
+      try {
+        const data = await getAllVideo();
+        if (data) {
+          const vidoeRandom = data.sort(() => Math.random() - 0.5).slice(0, 8);
+          setVideos(vidoeRandom);
+        }
+      } catch (error) {
+        console.error("Error fetching videos:", error);
+      }
+    };
+
+    fetchVideos();
+  }, []);
+
+  const getvideoUrl = (id) => {
+    if (userRole === 2) return `/isivideouser/${id}`; // Role User
+    if (userRole === 3) return `/isivideodokter/${id}`; // Role Dokter
+    return `/video/${id}`; // Default fallback
+  };
+
+  // Fungsi untuk menentukan URL halaman artikel list berdasarkan role
+  const getVideoListUrl = () => {
+    if (userRole === 2) return "/videouser"; // Role User
+    if (userRole === 3) return "/videodokter"; // Role Dokter
+    return "/video"; // Default fallback
+  };
 
   return (
     <section className="max-w-screen-2xl mx-auto py-14 px-4 sm:px-6 lg:px-8">
       {/* Button Tonton Video */}
       <div className="flex justify-end mb-8">
-        <Link to="/videouser">
+        <Link to={getVideoListUrl()}>
           <button className="bg-black text-white py-2 px-4 rounded hover:bg-gray-800 transition-all">Tonton Video</button>
         </Link>
       </div>
@@ -34,14 +53,17 @@ function VideoSection() {
       </div>
 
       {/* Video Grid */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-        {videos.map((video, index) => (
-          <a href={video.link} key={index} className="bg-white border border-gray-200 rounded-lg shadow-lg overflow-hidden transition-transform transform hover:scale-105">
-            <img src={video.image} alt={video.title} className="w-full h-56 object-cover" />
-            <div className="p-4">
-              <p className="text-gray-800 font-bold text-sm">{video.title}</p>
-            </div>
-          </a>
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        {videos.map((video) => (
+          <div key={video.id} className="bg-white rounded-lg shadow-lg overflow-hidden transition-transform transform hover:scale-105">
+            {/* Gunakan getvideoUrl untuk menentukan URL artikel */}
+            <a href={getvideoUrl(video.id)} >
+              <img src={video.video_files[0]?.thumbnail} alt={video.judul} className="w-full h-56 object-cover" />
+            </a>
+            <a href={getvideoUrl(video.id)} className="block p-5 text-lg font-medium text-gray-800 hover:text-green-600">
+              {video.judul}
+            </a>
+          </div>
         ))}
       </div>
     </section>
