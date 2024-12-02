@@ -44,11 +44,11 @@ const NavbarAdmin = () => {
       {/* Right Section */}
       <div className={`${isDropdownVisible ? "flex" : "hidden"} md:flex flex-col md:flex-row items-center space-y-4 md:space-y-0 md:space-x-4 mt-4 md:mt-0 w-full md:w-auto`}>
         {/* Greeting */}
-        <h2 className="text-sm font-semibold text-gray-600">Hallo, {userData.name}</h2>
+        <h2 className="text-sm font-semibold text-gray-600">Hallo, {userData && userData.name}</h2>
 
         {/* Profile */}
         <div className="flex items-center space-x-2">
-          <img src={userData.images} alt="profile" className="w-10 h-10 rounded-full border border-gray-300 cursor-pointer" onClick={handleProfileClick} />
+          <img src={userData && userData.images} alt="profile" className="w-10 h-10 rounded-full border border-gray-300 cursor-pointer" onClick={handleProfileClick} />
         </div>
 
         {/* Logout Button */}

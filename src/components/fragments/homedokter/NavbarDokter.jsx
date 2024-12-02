@@ -67,7 +67,7 @@ function Navbar({ showKeluar = true }) {
           </li>
           <li>
             <Link to="/editprofil-dokter">
-              <img src={userData.images} alt="Profile" className="w-8 h-8 md:w-10 md:h-10 rounded-full cursor-pointer" />
+              <img src={userData && userData.images} alt="Profile" className="w-8 h-8 md:w-10 md:h-10 rounded-full cursor-pointer" />
             </Link>
           </li>
           {showKeluar && (

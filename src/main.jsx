@@ -52,6 +52,9 @@ import { ProtectedRoute } from "./context/ProviderAuth";
 import NotFound from "./pages/404pages/NotFoundPages";
 import ListArtikelDokterPage from "./pages/artikelpages/ListArtikelDokterPages";
 import ListVideoDokterPage from "./pages/videopages/ListVideoDokter.page";
+import ChatPage from "./pages/chatpages/ChatPages";
+import ChatDokterPages from "./pages/chatpages/ChatDokterPages";
+import KelolaChatPage from "./pages/kelolapeges/KelolaChatPage";
 
 const router = createBrowserRouter([
   {
@@ -388,6 +391,22 @@ const router = createBrowserRouter([
     element: (
       <ProtectedRoute>
         <KelolaVideoPage />
+      </ProtectedRoute>
+    ),
+  },
+  {
+    path: "/chat/:sessionId",
+    element: <ChatPage />,
+  },
+  {
+    path: "/chat/dokter/:sessionId",
+    element: <ChatDokterPages />,
+  },
+  {
+    path: "/kelolachat",
+    element: (
+      <ProtectedRoute>
+        <KelolaChatPage />
       </ProtectedRoute>
     ),
   },

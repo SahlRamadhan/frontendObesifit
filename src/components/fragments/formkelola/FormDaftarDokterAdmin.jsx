@@ -171,7 +171,7 @@ const FormDaftarDokterAdmin = () => {
       <Modal isOpen={isModalOpen} onRequestClose={closeModal} contentLabel="Lihat Dokumen Izin Praktik / Sertifikat" className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-75">
         <div className="bg-white p-6 rounded-lg shadow-md max-w-4xl w-full">
           <h2 className="text-lg font-semibold text-gray-900 mb-4">Lihat Dokumen Izin Praktik / Sertifikat</h2>
-          <iframe src={currentCertificate} alt="Dokumen Sertifikat" className="w-full"></iframe>
+          <iframe src={currentCertificate} alt="Dokumen Sertifikat" className="w-full h-80 "></iframe>
           <button onClick={closeModal} className="mt-4 bg-red-500 text-white px-4 py-2 rounded-lg">
             Tutup
           </button>
