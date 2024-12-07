@@ -1,12 +1,15 @@
 import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "@/context/AuthContext";
+import { getAllTransaksi } from "@/services/transaksi.config";
 
 function Navbar({ showKeluar = true }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false); // State untuk toggle menu
   const [isMobile, setIsMobile] = useState(false); // State untuk mendeteksi mobile view
+  const [isPremium, setIsPremium] = useState(false); // State untuk status premium
   const navigate = useNavigate();
   const { logout, userData } = useAuth();
+
   // Deteksi ukuran layar
   useEffect(() => {
     const handleResize = () => {
@@ -20,6 +23,30 @@ function Navbar({ showKeluar = true }) {
       window.removeEventListener("resize", handleResize); // Hapus event listener saat komponen di-unmount
     };
   }, []);
+
+ useEffect(() => {
+   const checkPremiumStatus = async () => {
+     try {
+       if (userData) {
+         const allTransactions = await getAllTransaksi(); // Panggil endpoint getAllTransaksi
+
+         // Filter transaksi berdasarkan user dan status APPROVED
+         const userTransactions = allTransactions.filter(
+           (trx) =>
+             trx.user.id === userData.id && // Transaksi milik user saat ini
+             trx.status.id === 2 && // Status APPROVED
+             new Date(trx.end_date) > new Date() // Belum kadaluwarsa
+         );
+
+         setIsPremium(userTransactions.length > 0); // Set premium jika ada transaksi yang sesuai
+       }
+     } catch (error) {
+       setIsPremium(false); // Default ke false jika terjadi error
+     }
+   };
+
+   checkPremiumStatus();
+ }, [userData]);
 
   // Fungsi Logout
   const handleLogout = async () => {
@@ -69,6 +96,7 @@ function Navbar({ showKeluar = true }) {
               <img src={userData && userData.images} alt="Profile" className="w-8 h-8 md:w-10 md:h-10 rounded-full cursor-pointer" />
             </Link>
           </li>
+          {isPremium && <li className="text-green-600 font-bold">PREMIUM</li>}
           {showKeluar && (
             <li>
               <button onClick={handleLogout} className="px-3 py-1 md:px-4 md:py-2 text-white bg-red-500 hover:bg-red-600 rounded-lg shadow-md">
@@ -120,6 +148,7 @@ function Navbar({ showKeluar = true }) {
                 Profil
               </Link>
             </li>
+            {isPremium && <li className="text-green-600 font-bold">PREMIUM</li>}
             {showKeluar && (
               <li>
                 <button

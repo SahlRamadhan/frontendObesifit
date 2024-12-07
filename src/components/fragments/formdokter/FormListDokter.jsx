@@ -3,13 +3,16 @@ import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import { createChat } from "@/services/chat.config";
 import { getAllUsers } from "@/services/users.config";
-import { useAuth } from "../../../context/AuthContext"; // Import useAuth
+import { getAllTransaksi } from "@/services/transaksi.config";
+import { useAuth } from "../../../context/AuthContext";
 
 export default function FormListDokter() {
   const [doctors, setDoctors] = useState([]);
+  const [isPremium, setIsPremium] = useState(false);
   const navigate = useNavigate();
-  const { userData } = useAuth(); // Ambil data user dari context
+  const { userData } = useAuth();
 
+  // Fetch data dokter
   useEffect(() => {
     const fetchDoctors = async () => {
       try {
@@ -25,9 +28,33 @@ export default function FormListDokter() {
     fetchDoctors();
   }, []);
 
+  // Cek langganan dengan memfilter hasil dari getAllTransaksi
+  useEffect(() => {
+    const checkSubscription = async () => {
+      try {
+        const allTransactions = await getAllTransaksi();
+
+        // Filter transaksi untuk pengguna saat ini
+        const userTransactions = allTransactions.filter(
+          (trx) =>
+            trx.user.id === userData.id && // Transaksi milik user saat ini
+            trx.status.id === 2 && // Status APPROVED
+            new Date(trx.end_date) > new Date() // Belum kadaluwarsa
+        );
+
+        setIsPremium(userTransactions.length > 0); // Set status premium
+      } catch (error) {
+        setIsPremium(false); // Jika gagal, anggap pengguna bukan premium
+      }
+    };
+
+    if (userData) {
+      checkSubscription();
+    }
+  }, [userData]);
+
   const handleConsultation = async (doctorId) => {
     try {
-      // Gunakan userData.id sebagai id_user
       const session = await createChat({ id_user: userData.id, id_doctor: doctorId });
       navigate(`/chat/${session.session.id}`);
     } catch (error) {
@@ -48,9 +75,13 @@ export default function FormListDokter() {
               <h3 className="text-lg font-bold text-gray-900">{doctor.name}</h3>
               <p className="text-sm text-gray-700">{doctor.jenis_profesi || "Dokter Spesialis"}</p>
               <div className="mt-4">
-                <button className="bg-primary hover:bg-teal-600 text-white font-bold py-2 px-4 rounded-full text-sm shadow-md" onClick={() => handleConsultation(doctor.id)}>
-                  Konsultasi
-                </button>
+                {isPremium ? (
+                  <button className="bg-primary hover:bg-teal-600 text-white font-bold py-2 px-4 rounded-full text-sm shadow-md" onClick={() => handleConsultation(doctor.id)}>
+                    Konsultasi
+                  </button>
+                ) : (
+                  <p className="text-red-500 text-sm font-semibold">Hanya untuk anggota yang berlangganan premium</p>
+                )}
               </div>
             </div>
           </div>

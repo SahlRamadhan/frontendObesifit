@@ -6,31 +6,32 @@ import { useNavigate } from "react-router-dom";
 
 export default function ListDokterPage() {
   const navigate = useNavigate();
+
   return (
     <section className="flex flex-col min-h-screen bg-gray-50">
       {/* Navbar */}
       <Navbar />
 
       {/* Banner Image Below Navbar */}
-      <div className="w-full h-80 bg-cover bg-center" style={{ backgroundImage: `url(${bannerImage})` }}></div>
+      <div className="w-full h-48 md:h-80 bg-cover bg-center" style={{ backgroundImage: `url(${bannerImage})` }}></div>
 
       {/* Konten Utama */}
       <div className="container mx-auto px-4 sm:px-2 mt-8 mb-8">
         {/* Layout Utama */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-8">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mt-8">
           {/* Bagian Kiri: Informasi */}
           <div className="bg-white border border-gray-300 rounded-lg shadow-md p-6">
             {/* Heading */}
             <h1 className="text-xl font-semibold text-gray-900 text-center">Konsultasi di ObesiFit</h1>
-            <p className="text-gray-600 mt-2 text-center text-xm">"Temukan solusi untuk pertanyaan kesehatanmu. Ayo, tanya dokter atau ahli kami di sini!"</p>
+            <p className="text-gray-600 mt-2 text-center text-sm">"Temukan solusi untuk pertanyaan kesehatanmu. Ayo, tanya dokter atau ahli kami di sini!"</p>
 
             {/* Konten Awal */}
             <h2 className="text-xl font-bold text-gray-800 mt-8 mb-5">Kenapa Harus Pilih Kami?</h2>
             <div className="space-y-4">
               {/* Bagian 1 */}
               <div className="flex flex-wrap items-start md:flex-nowrap">
-                <img src="src/assets/images 2/pilih kami 1.png" alt="Ahli" className="w-1/1 sm:w-full rounded-md mr-4 sm:mr-0 sm:mb-4" />
-                <div className="w-3/4 sm:w-full">
+                <img src="src/assets/images 2/pilih kami 1.png" alt="Ahli" className="w-full md:w-1/4 rounded-md mr-4 md:mr-0 md:mb-4" />
+                <div className="flex-1">
                   <h3 className="text-lg font-bold text-gray-800">Ahli yang Siap Bantu</h3>
                   <p className="text-gray-600 text-sm">Di ObesiFit, kamu bisa dapatkan informasi dari dokter dan ahli yang paham banget soal kesehatan! Mereka siap menjawab pertanyaanmu dan memberikan penjelasan yang jelas.</p>
                 </div>
@@ -38,8 +39,8 @@ export default function ListDokterPage() {
 
               {/* Bagian 2 */}
               <div className="flex flex-wrap items-start md:flex-nowrap">
-                <img src="src/assets/images 2/pilih kami 2.png" alt="Konsultasi" className="w-1/1 sm:w-full rounded-md mr-4 sm:mr-0 sm:mb-4" />
-                <div className="w-3/4 sm:w-full">
+                <img src="src/assets/images 2/pilih kami 2.png" alt="Konsultasi" className="w-full md:w-1/4 rounded-md mr-4 md:mr-0 md:mb-4" />
+                <div className="flex-1">
                   <h3 className="text-lg font-bold text-gray-800">Konsultasi Santai</h3>
                   <p className="text-gray-600 text-sm">Tanya-tanya seputar kesehatan dengan suasana yang nyaman, tanpa tekanan. Di sini, kamu bisa bebas berpendapat dan merasa lebih rileks saat konsultasi.</p>
                 </div>
@@ -47,8 +48,8 @@ export default function ListDokterPage() {
 
               {/* Bagian 3 */}
               <div className="flex flex-wrap items-start md:flex-nowrap">
-                <img src="src/assets/images 2/pilih kami 3.png" alt="Tips" className="w-1/1 sm:w-full rounded-md mr-4 sm:mr-0 sm:mb-4" />
-                <div className="w-3/4 sm:w-full">
+                <img src="src/assets/images 2/pilih kami 3.png" alt="Tips" className="w-full md:w-1/4 rounded-md mr-4 md:mr-0 md:mb-4" />
+                <div className="flex-1">
                   <h3 className="text-lg font-bold text-gray-800">Tips yang Pas</h3>
                   <p className="text-gray-600 text-sm">
                     Dapatkan rekomendasi dan tips yang pas sesuai dengan kebutuhan dan tujuan kesehatanmu! Kami berkomitmen untuk membantu kamu mencapai gaya hidup yang lebih sehat dengan cara yang menyenangkan.
@@ -84,10 +85,10 @@ export default function ListDokterPage() {
             </div>
 
             {/* Promosi */}
-            <div className="mt-8 p-9 bg-white rounded-[80px] border border-gray-300 flex flex-col md:flex-row items-center shadow-md" style={{ height: "auto" }}>
+            <div className="mt-8 p-6 bg-white rounded-xl border border-gray-300 flex flex-col md:flex-row items-center shadow-md">
               {/* Kolom Kiri */}
               <div className="flex-1 pr-4 text-center md:text-left">
-                <p className="text-gray-700 font-bold text-xm mb-2">Yuk, langganan sekarang bareng ObesiFit!</p>
+                <p className="text-gray-700 font-bold text-md mb-2">Yuk, langganan sekarang bareng ObesiFit!</p>
                 <p className="text-gray-600 text-sm">Nikmati akses konsultasi ke dokter dan pakar kami kapan saja, tanpa batas waktu!</p>
                 <button className="font-bold mt-4 bg-primary text-white text-sm py-2 px-4 rounded-full hover:bg-teal-600" onClick={() => navigate("/pembayaran-langganan")}>
                   Ayo Berlangganan!
@@ -95,7 +96,7 @@ export default function ListDokterPage() {
               </div>
               {/* Kolom Kanan */}
               <div className="flex-3 flex justify-center md:justify-end mt-4 md:mt-0">
-                <img src="src/assets/images 2/Pembayaran.png" alt="Promo Berlangganan" className="max-w-[300px] h-auto object-contain rounded-[50px] shadow-md" />
+                <img src="src/assets/images 2/Pembayaran.png" alt="Promo Berlangganan" className="max-w-full md:max-w-[300px] h-auto object-contain rounded-xl shadow-md" />
               </div>
             </div>
           </div>
@@ -103,7 +104,7 @@ export default function ListDokterPage() {
           {/* Bagian Kanan: Daftar Dokter */}
           <div className="bg-white rounded-lg shadow-md p-6 border border-gray-300">
             <h2 className="text-xl font-bold text-gray-800 text-center mb-2">Daftar Dokter/Ahli Kami</h2>
-            <p className="text-center text-gray-600 mb-8 text-xm">"Pilihan dokter dan ahli kami. Pilih sesuai kebutuhanmu!"</p>
+            <p className="text-center text-gray-600 mb-8 text-sm">"Pilihan dokter dan ahli kami. Pilih sesuai kebutuhanmu!"</p>
             <FormListDokter />
           </div>
         </div>
